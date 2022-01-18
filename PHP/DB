@@ -1,6 +1,6 @@
 <?php 
 
-class DB{
+class DB{ 
     private static $server = 'localhost';
     private static $dbName = 'club_social';
     private static $user = 'root';
