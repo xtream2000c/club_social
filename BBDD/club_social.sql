@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-01-2022 a las 16:05:03
+-- Tiempo de generación: 25-01-2022 a las 19:36:16
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 7.4.22
 
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `club_social`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `eventos`
+--
+
+CREATE TABLE `eventos` (
+  `id_eventos` int(11) NOT NULL,
+  `titulo_evento` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `cuerpo_evento` longtext COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -51,6 +63,18 @@ INSERT INTO `instalaciones` (`nombre_pista`, `tipo_pista`, `precio`, `precio_no_
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `noticias`
+--
+
+CREATE TABLE `noticias` (
+  `id_noticias` int(11) NOT NULL,
+  `titulo_noticia` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `cuerpo_noticia` longtext COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `reservas`
 --
 
@@ -73,7 +97,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `apellidos` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `tipo_usuario` set('Socio','Administrador','Presidente','Invitado') COLLATE utf8_spanish_ci NOT NULL DEFAULT 'Invitado',
-  `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
   `edad` int(11) NOT NULL,
   `miembros` int(11) NOT NULL,
   `usuario` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
@@ -85,10 +109,22 @@ CREATE TABLE `usuarios` (
 --
 
 --
+-- Indices de la tabla `eventos`
+--
+ALTER TABLE `eventos`
+  ADD PRIMARY KEY (`id_eventos`);
+
+--
 -- Indices de la tabla `instalaciones`
 --
 ALTER TABLE `instalaciones`
   ADD PRIMARY KEY (`id_pista`);
+
+--
+-- Indices de la tabla `noticias`
+--
+ALTER TABLE `noticias`
+  ADD PRIMARY KEY (`id_noticias`);
 
 --
 -- Indices de la tabla `reservas`
@@ -107,10 +143,22 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `eventos`
+--
+ALTER TABLE `eventos`
+  MODIFY `id_eventos` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `instalaciones`
 --
 ALTER TABLE `instalaciones`
   MODIFY `id_pista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `noticias`
+--
+ALTER TABLE `noticias`
+  MODIFY `id_noticias` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas`
