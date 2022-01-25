@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/../PHP/DB.php');
 
 class Usuarios {
 
-    //Atributos han de ser publicos , si no tendríamos que tener un get para cada uno!
+    //Atributos han de ser publicos , si no tendríamos que tener un get para cada uno.
     public $id;
     public $nombre;
     public $apellidos;
