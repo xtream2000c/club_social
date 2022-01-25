@@ -73,6 +73,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `apellidos` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `tipo_usuario` set('Socio','Administrador','Presidente','Invitado') COLLATE utf8_spanish_ci NOT NULL DEFAULT 'Invitado',
+  `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `edad` int(11) NOT NULL,
   `miembros` int(11) NOT NULL,
   `usuario` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
