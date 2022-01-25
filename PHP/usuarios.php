@@ -39,7 +39,7 @@ class Usuarios {
             array_push($usuarios, new Usuarios($usuario["id"],$usuario["nombre"],$usuario["apellidos"],$usuario["tipo_usuario"],$usuario["email"],$usuario["edad"],$usuario["miembros"],$usuario["usuario"],$usuario["contraseña"]));
         }
 
-        return $usuarios;
+        return json_encode($usuarios);
     }
 
     
