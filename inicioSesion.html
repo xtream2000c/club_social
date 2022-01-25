@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,60 +11,84 @@
     <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
     <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
 </head>
-<body>
+<body class="h-100 bg-secondary">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 bg-primary">
-                <form action="" method="post">
-                    <table>
-                        <tr>
-                            <td><label for="nombre">Nombre</label></td>
-                            <td><input type="text" id="nombre"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="apellidos">Apellidos</label></td>
-                            <td><input type="text" id="apellidos"></td>
-                        </tr>
-                        <tr class="text-center">
-                            <td colspan="2"><input type="submit"></td>
-                        </tr>
-                    </table>
-                </form>
+    <div class="p-3 bg-secondary text-white text-center">
+        <h1>Club Social</h1>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" role="button" data-bs-toggle="dropdown">Logo</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="index.html">inicio</a></li>
+            <li><a class="dropdown-item" href="index.html#noticias">Noticias</a></li>
+            <li><a class="dropdown-item" href="index.html#eventos">Eventos</a></li>
+            <li><a class="dropdown-item" href="index.html#localizacion">Donde estamos</a></li>
+            <li><a class="dropdown-item" href="index.html#instalaciones">Instalaciones - Precios</a></li>
+            <li><a class="dropdown-item" href="index.html#">Contactos</a></li>
+
+          </ul>
+
+          <a class="btn btn-secondary" type="button" href="inicioSesion.html">Iniciar Sesion</a>
+
+        </div>
+        
+      </nav>
+
+    <div class="container-fluid h-75">
+        <div class="row h-100">
+            <div class="col-md-6 align-items-center">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-xl-4 bg-info py-3" style="border-radius: 0.5rem;">
+                        <form action="" method="post">
+                            
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" id="nombre" class="form-control">
+                                
+                                    <label for="apellidos" class="form-label">Apellidos</label>
+                                    <input type="text" id="apellidos" class="form-control">
+                                
+                                
+                                    <input type="submit" class="btn btn-primary mt-3">
+                            
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                
             </div>
-            
-            <div class="col-md-6 bg-danger justify-content-center">
-                <form action="" method="post">
-                    <table>
-                        <tr>
-                            <td><label for="nombre">Nombre</label></td>
-                            <td><input type="text" id="nombre"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="apellidos">Apellidos</label></td>
-                            <td><input type="text" id="apellidos"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="edad">Edad</label></td>
-                            <td><input type="number" id="edad"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="miembros">Miembros</label></td>
-                            <td><input type="text" id="miembros"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="usuario">Usuario</label></td>
-                            <td><input type="text" id="usuario"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="contrasena">Contraseña</label></td>
-                            <td><input type="password" id="contrasena"></td>
-                        </tr>
-                        <tr class="text-center">
-                            <td colspan="2"><input type="submit"></td>
-                        </tr>
-                    </table>
-                </form>
+
+            <div class="col-md-6">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-xl-4 bg-info py-4" style="border-radius: 0.5rem;">
+                        
+                        <form action="" method="post">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" id="nombre" class="form-control">
+                                
+                                    <label for="apellidos" class="form-label">Apellidos</label>
+                                    <input type="text" id="apellidos" class="form-control">
+                                
+                                    <label for="edad" class="form-label">Edad</label></td>
+                                    <input type="number" id="edad" class="form-control">
+                                
+                                    <label for="miembros" class="form-label">Miembros</label>
+                                    <input type="text" id="miembros" class="form-control">
+                                
+                                    <label for="usuario" class="form-label">Usuario</label>
+                                    <input type="text" id="usuario" class="form-control">
+                                
+                                    <label for="contrasena" class="form-label">Contraseña</label>
+                                    <input type="password" id="contrasena" class="form-control">
+                                
+                                    <input type="submit" class="btn btn-primary mt-3">
+                                
+                            </table>
+                        </form>
+                    
+                    </div>
+                </div>
             </div>
         </div>
 
