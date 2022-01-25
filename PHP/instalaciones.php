@@ -29,7 +29,7 @@ class Instalaciones{
             array_push($instalaciones, new Instalaciones($instalacion["nombre_pista"],$instalacion["tipo_pista"],$instalacion["precio"],$instalacion["precio_no_socio"],$instalacion["id_pista"]));
         }
 
-        return $instalaciones;
+        return json_encode($instalaciones);
     }
 }
 ?>
