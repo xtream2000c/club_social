@@ -4,7 +4,7 @@ function main() {
     //Esto esta por probar
     $.ajax({
         type:"POST",
-        url: "instalaciones.php",
+        url: "PHP/instalaciones.php",//se modifica la ruta
         dataType: "JSON",
         success : function(infoInstalaciones){
             console.log(infoInstalaciones);

@@ -31,5 +31,7 @@ class Instalaciones{
 
         return json_encode($instalaciones);
     }
+
 }
+print(Instalaciones::getInstalaciones());//imprime todas las instalaciones en JSON, llama a getinstalaciones()
 ?>
