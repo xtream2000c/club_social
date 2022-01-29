@@ -8,9 +8,16 @@ function main() {
         dataType: "JSON",
         success : function(infoInstalaciones){
             console.log(infoInstalaciones);
-            if(infoInstalaciones.status === "success"){
+            if(1==1 || infoInstalaciones.status === "success"){//esto es para que entre en el if siempre, es probable que no haga falta el if
                 alert("success");
                 sessionStorage.setItem("instalaciones", JSON.stringify(infoInstalaciones));
+                
+                for(let i=0;i<infoInstalaciones.length;i++){//se itera sobre el array
+
+                    let inst = infoInstalaciones[i];
+                    $('#tablaInstalaciones').append(`<tr><td><h6>${inst.tipo_pista}</h6></td><td>${inst.precio}</td><td>${inst.precio_no_socio}</td></tr>`);
+                }
+
             }else{
                 alert("error");
             }
