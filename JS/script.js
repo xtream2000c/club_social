@@ -9,7 +9,7 @@ function main() {
         success : function(infoInstalaciones){
             console.log(infoInstalaciones);
             if(1==1 || infoInstalaciones.status === "success"){//esto es para que entre en el if siempre, es probable que no haga falta el if, el objeto que se recibe como parametro es el json, ese json no tiene success y nunca va a dar true
-                alert("success");
+                console.log("success");
                 sessionStorage.setItem("instalaciones", JSON.stringify(infoInstalaciones));
                 
                 for(let i=0;i<infoInstalaciones.length;i++){//se itera sobre el array y se imprimen las instalaciones
@@ -31,7 +31,7 @@ function main() {
         success : function(noticias){
             console.log(noticias);
             if(1==1 || noticias.status === "success"){//mismo caso que instalaciones, conviene quitar el if
-                alert("success");
+                console.log("success");
                 sessionStorage.setItem("noticias", JSON.stringify(noticias));
                 console.log('probando if noticias');
                 for(let i=0;i<noticias.length;i++){
@@ -60,7 +60,7 @@ function main() {
         dataType: "JSON",
         success : function(eventos){
             console.log(eventos);
-            alert("success");
+            console.log("success");
             sessionStorage.setItem("eventos", JSON.stringify(eventos));
             for(let i=0;i<eventos.length;i++){
                 let even = eventos[i];
