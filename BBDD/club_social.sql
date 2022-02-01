@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-01-2022 a las 19:36:16
+-- Tiempo de generación: 01-02-2022 a las 19:38:32
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 7.4.22
 
@@ -32,6 +32,17 @@ CREATE TABLE `eventos` (
   `titulo_evento` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `cuerpo_evento` longtext COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `eventos`
+--
+
+INSERT INTO `eventos` (`id_eventos`, `titulo_evento`, `cuerpo_evento`) VALUES
+(1, 'título evento 1', 'cuerpo evento 1'),
+(2, 'título evento 2', 'cuerpo evento 2'),
+(3, 'título evento 3', 'cuerpo evento 4'),
+(4, 'título evento 4', 'cuerpo evento 4'),
+(5, 'título evento 5', 'cuerpo evento 5');
 
 -- --------------------------------------------------------
 
@@ -72,6 +83,17 @@ CREATE TABLE `noticias` (
   `cuerpo_noticia` longtext COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `noticias`
+--
+
+INSERT INTO `noticias` (`id_noticias`, `titulo_noticia`, `cuerpo_noticia`) VALUES
+(1, 'Título noticia 1', 'Cuerpo noticia 1'),
+(2, 'Título noticia 2', 'Cuerpo noticia 2'),
+(3, 'Título noticia 3', 'Cuerpo noticia 3'),
+(4, 'Título noticia 4', 'Cuerpo noticia 4'),
+(5, 'Título noticia 5', 'Cuerpo noticia 5');
+
 -- --------------------------------------------------------
 
 --
@@ -97,12 +119,20 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `apellidos` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `tipo_usuario` set('Socio','Administrador','Presidente','Invitado') COLLATE utf8_spanish_ci NOT NULL DEFAULT 'Invitado',
-  `email` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
   `edad` int(11) NOT NULL,
   `miembros` int(11) NOT NULL,
+  `email` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `usuario` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `contraseña` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `tipo_usuario`, `edad`, `miembros`, `email`, `usuario`, `contraseña`) VALUES
+(1, 'nombre 1', 'apes1', 'Invitado', 22, 2, 'email@gsfgda', 'usua1', '1234'),
+(2, 'nombre 2', 'apes2', 'Invitado', 2, 2, 'email@gsfgdaegfrg', 'usua2', '25252');
 
 --
 -- Índices para tablas volcadas
@@ -146,7 +176,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `eventos`
 --
 ALTER TABLE `eventos`
-  MODIFY `id_eventos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_eventos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `instalaciones`
@@ -158,7 +188,7 @@ ALTER TABLE `instalaciones`
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id_noticias` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_noticias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas`
@@ -170,7 +200,7 @@ ALTER TABLE `reservas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
