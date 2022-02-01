@@ -26,6 +26,7 @@ class Eventos{
         return json_encode($eventos);
     }
 
+    
 }
 print(Eventos::getEventos());//imprime todas los eventos en JSON, llama a getEventos()
 ?>

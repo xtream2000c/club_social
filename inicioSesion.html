@@ -7,8 +7,12 @@
     <title>Inicio Sesion</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="Boostrap/css/bootstrap.min.css">
+    
     <script src="Boostrap/js/bootstrap.min.js"></script>
+    <script src="JS/jquery-3.6.0.min.js"></script>
+    <script src="JS/scriptSession.js"></script>
     <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
+    
     <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
 </head>
 <body class="h-100 bg-secondary">
@@ -63,26 +67,29 @@
                 <div class="row h-100 justify-content-center align-items-center">
                     <div class="col-xl-4 bg-info py-4" style="border-radius: 0.5rem;">
                         
-                        <form action="" method="post">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" id="nombre" class="form-control">
+                        <form id="registro" method="post">
+                            <label for="nombreR" class="form-label">Nombre</label>
+                            <input type="text" id="nombreR" class="form-control">
                                 
-                                    <label for="apellidos" class="form-label">Apellidos</label>
-                                    <input type="text" id="apellidos" class="form-control">
+                                    <label for="apellidosR" class="form-label">Apellidos</label>
+                                    <input type="text" id="apellidosR" class="form-control">
                                 
-                                    <label for="edad" class="form-label">Edad</label></td>
-                                    <input type="number" id="edad" class="form-control">
+                                    <label for="edadR" class="form-label">Edad</label></td>
+                                    <input type="number" id="edadR" class="form-control">
                                 
-                                    <label for="miembros" class="form-label">Miembros</label>
-                                    <input type="text" id="miembros" class="form-control">
+                                    <label for="miembrosR" class="form-label">Miembros</label>
+                                    <input type="text" id="miembrosR" class="form-control">
                                 
-                                    <label for="usuario" class="form-label">Usuario</label>
-                                    <input type="text" id="usuario" class="form-control">
+                                    <label for="emailR" class="form-label">Email</label>
+                                    <input type="text" id="emailR" class="form-control">
+
+                                    <label for="usuarioR" class="form-label">Usuario</label>
+                                    <input type="text" id="usuarioR" class="form-control">
                                 
-                                    <label for="contrasena" class="form-label">Contraseña</label>
-                                    <input type="password" id="contrasena" class="form-control">
+                                    <label for="contrasenaR" class="form-label">Contraseña</label>
+                                    <input type="password" id="contrasenaR" class="form-control">
                                 
-                                    <input type="submit" class="btn btn-primary mt-3">
+                                    <input type="submit" class="btn btn-primary mt-3" >
                                 
                             </table>
                         </form>

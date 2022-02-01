@@ -2,10 +2,14 @@
 
 //Requerimiento de acceso a base de datos.
 require_once(dirname(__FILE__).'/../PHP/DB.php');
+// echo $_POST['funcion'];
+print_r($_POST);
+// $resultado = json_decode($_POST);
 
+// $funcion = $_POST['funcion'];
 
 class Usuarios {
-
+    
     //Atributos han de ser publicos , si no tendríamos que tener un get para cada uno.
     public $id;
     public $nombre;
@@ -42,7 +46,32 @@ class Usuarios {
         return json_encode($usuarios);
     }
 
+    static function setUsuario(){
+        // set parameters and execute
+        print('ahora estoy aqui');
+        $nombre = $_POST['nombre'];
+        $apellidos = $_POST['apellidos'];
+        $email = $_POST['email'];
+        $edad = $_POST['edad'];
+        $miembros = $_POST['miembros'];
+        $usuario = $_POST['usuario'];
+        $contraseña = $_POST['contraseña'];
+        $errores=[];//se crea un array que contendrá los errores
+
+        //control de errores
+        if($edad<0){
+            $errores[]= 'La edad no puede ser menor a cero';
+        }
+        $sentencia = " INSERT INTO usuarios (id,nombre,apellidos,tipo_usuario,email,edad,miembros,usuario,contraseña) VALUES ('','$nombre','$apellidos','Invitado','$email','$edad','$miembros','$usuario','$contraseña')";
+
+        DB::query($sentencia);
+        
+    }
     
+}
+if($_POST['funcion']=='setUsuario'){
+    Usuarios::setUsuario();
+    print('estoy aqui');
 }
 
 ?>
