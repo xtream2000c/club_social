@@ -48,7 +48,7 @@ class Usuarios {
 
     static function setUsuario(){
         // set parameters and execute
-        print('ahora estoy aqui');
+        // print('ahora estoy aqui');
         $nombre = $_POST['nombre'];
         $apellidos = $_POST['apellidos'];
         $email = $_POST['email'];
@@ -62,16 +62,29 @@ class Usuarios {
         if($edad<0){
             $errores[]= 'La edad no puede ser menor a cero';
         }
-        $sentencia = " INSERT INTO usuarios (id,nombre,apellidos,tipo_usuario,email,edad,miembros,usuario,contraseña) VALUES ('','$nombre','$apellidos','Invitado','$email','$edad','$miembros','$usuario','$contraseña')";
+        try{
+            $sentencia = " INSERT INTO usuarios (id,nombre,apellidos,tipo_usuario,email,edad,miembros,usuario,contraseña) VALUES ('','$nombre','$apellidos','Invitado','$email','$edad','$miembros','$usuario','$contraseña')";
 
-        DB::query($sentencia);
+            DB::query($sentencia);
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
         
     }
-    
+    //falta proteger contra inyección sql, hay que hacerlo con un PDO::prepare y despues execute del statement
 }
 if($_POST['funcion']=='setUsuario'){
     Usuarios::setUsuario();
-    print('estoy aqui');
+    // print('estoy aqui');
 }
-
+//posible solución a las reservas
+//tendremos la lista con las pistas que hay, luego un objeto que muestre la disponibilidad de la pista
+//se coge de la bbdd las horas que ya están reservadas y se quitan de las horas de disponibilidad (apertura-cierre)
+//{ "id_instalacion" : 23, "nombre_instalacion" : "pista 23", "disponibilidad" : {"2022-02-01" : [8, 9, 10, 11], "2022-02-02" : [9, 10, 11, 14]}}
 ?>
