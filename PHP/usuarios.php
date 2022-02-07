@@ -3,7 +3,7 @@
 //Requerimiento de acceso a base de datos.
 require_once(dirname(__FILE__).'/../PHP/DB.php');
 // echo $_POST['funcion'];
-print_r($_POST);
+//print_r($_POST);
 // $resultado = json_decode($_POST);
 
 // $funcion = $_POST['funcion'];
@@ -67,11 +67,35 @@ class Usuarios {
         DB::query($sentencia);
         
     }
+
+    static function getUsuario(){
+        // set parameters and execute
+
+        $usuario = $_POST['usuario'];
+        $contraseña = $_POST['contraseña'];
+
+        $sentencia = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND contraseña = '$contraseña'";
+
+        $usuarioSesion = mysqli_fetch_all(DB::query($sentencia),MYSQLI_ASSOC);
+        
+        if(!empty($usuarioSesion)){
+            return json_encode($usuarioSesion);
+        }
+        else{
+            return false;
+        }
+        
+
+    }
     
 }
 if($_POST['funcion']=='setUsuario'){
     Usuarios::setUsuario();
     print('estoy aqui');
+}
+if($_POST['funcion']=='getUsuario'){
+    Usuarios::getUsuario();  
+    print Usuarios::getUsuario(); 
 }
 
 ?>
