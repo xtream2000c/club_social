@@ -1,4 +1,3 @@
-
     //Esto esta por probar
     window.onload=main;
 
@@ -16,7 +15,6 @@
         let emailR = document.getElementById('emailR').value;
         let usuarioR = document.getElementById('usuarioR').value;
         let contrasenaR = document.getElementById('contrasenaR').value;
-        
                 
         $.ajax({
             type:"POST",
@@ -41,8 +39,6 @@
         let usuario = document.getElementById('usuario').value;
         let contraseña = document.getElementById('contraseña').value;
         
-
-        
         $.ajax({
             type:"POST",
             url: "PHP/usuarios.php",//se modifica la ruta
@@ -56,10 +52,8 @@
                     alert("Sesion iniciada con exito")
                     sessionStorage.setItem("usuarioSesion", user); //USER YA ES UN JSON NO HACE FALTA HACER JSON.stringify()
                 }else{
-                   alert("El usuario no existe, compruebe su usuario y contraseña")
-                }
-
-                
+                   alert("El usuario no existe, compruebe su usuario y contraseña");
+                }                
                 
             },
             error : function(xhr,status){

@@ -2,6 +2,17 @@ window.onload = main;
 
 function main() {
     //Esto esta por probar
+
+    var usuarioSesion = JSON.parse(sessionStorage.getItem("usuarioSesion"));
+
+    alert(usuarioSesion)
+
+    if(usuarioSesion){
+        alert("SesionIniciada");
+        document.getElementById("btnsesion").innerHTML="Perfil";
+        document.getElementById("btnsesion").href="Perfil.html";
+    }
+
     $.ajax({
         type:"POST",
         url: "PHP/instalaciones.php",//se modifica la ruta
