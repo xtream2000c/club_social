@@ -25,7 +25,11 @@ function main() {
                 
                 for(let i=0;i<infoInstalaciones.length;i++){//se itera sobre el array y se imprimen las instalaciones
                     let inst = infoInstalaciones[i];
-                    $('#tablaInstalaciones').append(`<tr><td><h6>${inst.tipo_pista}</h6></td><td><h6>${inst.precio}</h6></td><td><h6>${inst.precio_no_socio}</h6></td></tr>`);
+                    $('#tablaInstalaciones').append(`<tr><td><h6>${inst.tipo_pista}</h6></td><td><h6>${inst.precio}</h6></td><td><h6>${inst.precio_no_socio}</h6></td> <td><button class="btn btn-outline-light"  id="${inst.id_pista}">Reservar</button></td> </tr>`);
+                    
+                    document.getElementById(`${inst.id_pista}`).addEventListener('click',function(){
+                        reservaPista(inst.id_pista);
+                    })
                 }
             }else{
                 alert("error");
@@ -35,6 +39,16 @@ function main() {
              alert("No se ha podido conectar con la base de datos para obtener las instalaciones");
         }
     })
+    
+    function reservaPista(id){
+        location.href = 'reservas.html';
+        sessionStorage.setItem('idPista',id);
+    }
+    
+
+
+
+
     $.ajax({
         type:"POST",
         url: "PHP/noticias.php",
