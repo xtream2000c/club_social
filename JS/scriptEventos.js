@@ -1,6 +1,9 @@
 window.onload = main;
 
 function main(){
+
+    compruebaSesion();
+
     var eventos = JSON.parse(sessionStorage.getItem("eventos"));
 
     for(let i=eventos.length-1;i>=0;i--){
