@@ -1,6 +1,9 @@
 window.onload = main;
 
 function main(){
+
+    compruebaSesion();
+
     var noticias = JSON.parse(sessionStorage.getItem("noticias"));
 
     for(let i=noticias.length-1;i>=0;i--){

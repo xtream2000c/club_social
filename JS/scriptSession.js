@@ -46,11 +46,13 @@
                 'funcion':'getUsuario', 'usuario': usuario,'contraseña':contraseña
             },
             success : function(user){
-                console.log(user)
 
                 if(user){
-                    alert("Sesion iniciada con exito")
+
                     sessionStorage.setItem("usuarioSesion", user); //USER YA ES UN JSON NO HACE FALTA HACER JSON.stringify()
+
+                    location.href = 'index.html';
+
                 }else{
                    alert("El usuario no existe, compruebe su usuario y contraseña");
                 }                

@@ -3,24 +3,16 @@ window.onload = main;
 function main() {
     //Esto esta por probar
 
-    var usuarioSesion = JSON.parse(sessionStorage.getItem("usuarioSesion"));
-
-    alert(usuarioSesion)
-
-    if(usuarioSesion){
-        alert("SesionIniciada");
-        document.getElementById("btnsesion").innerHTML="Perfil";
-        document.getElementById("btnsesion").href="Perfil.html";
-    }
+    compruebaSesion();
 
     $.ajax({
         type:"POST",
         url: "PHP/instalaciones.php",//se modifica la ruta
         dataType: "JSON",
         success : function(infoInstalaciones){
-            console.log(infoInstalaciones);
+            //console.log(infoInstalaciones);
             if(1==1 || infoInstalaciones.status === "success"){//esto es para que entre en el if siempre, es probable que no haga falta el if, el objeto que se recibe como parametro es el json, ese json no tiene success y nunca va a dar true
-                console.log("success");
+                //console.log("success");
                 sessionStorage.setItem("instalaciones", JSON.stringify(infoInstalaciones));
                 
                 for(let i=0;i<infoInstalaciones.length;i++){//se itera sobre el array y se imprimen las instalaciones
@@ -54,15 +46,15 @@ function main() {
         url: "PHP/noticias.php",
         dataType: "JSON",
         success : function(noticias){
-            console.log(noticias);
+            //console.log(noticias);
             if(1==1 || noticias.status === "success"){//mismo caso que instalaciones, conviene quitar el if
-                console.log("success");
+               // console.log("success");
                 sessionStorage.setItem("noticias", JSON.stringify(noticias));
-                console.log('probando if noticias');
+                //console.log('probando if noticias');
                 for(let i=0;i<noticias.length;i++){
                     let notic = noticias[i];
                     if(i==0){//solo en la primera iteración se pone data-bs-slide-to="0" y en el inner la clase active, luego el el else voy añadiendo mas data-bs-slide-to [i], y en el inner ya no lleva la clase active
-                        console.log('probando noticias dentro del for');
+                       // console.log('probando noticias dentro del for');
                         $('#noticias .carousel-indicators').append(`<button type="button" data-bs-target="#noticias" data-bs-slide-to="0" class="active"></button>`);
                         $('#noticias .carousel-inner').append(`<div class="carousel-item active"><h1>${notic.titulo_noticia}</h1><p>${notic.cuerpo_noticia}</p><br></div>`);    
                     }else{
@@ -84,12 +76,12 @@ function main() {
         url: "PHP/eventos.php",
         dataType: "JSON",
         success : function(eventos){
-            console.log(eventos);
-            console.log("success");
+            //console.log(eventos);
+            //console.log("success");
             sessionStorage.setItem("eventos", JSON.stringify(eventos));
             for(let i=0;i<eventos.length;i++){
                 let even = eventos[i];
-                console.log('probando eventos');
+               // console.log('probando eventos');
                 if(i==0){//solo en la primera iteración se pone data-bs-slide-to="0" y en el inner la clase active, luego el el else voy añadiendo mas data-bs-slide-to [i], y en el inner ya no lleva la clase active
                     $('#eventos .carousel-indicators').append(`<button type="button" data-bs-target="#eventos" data-bs-slide-to="0" class="active"></button>`);
                     $('#eventos .carousel-inner').append(`<div class="carousel-item active"><h1>${even.titulo_evento}</h1><p>${even.cuerpo_evento}</p><br></div>`);
