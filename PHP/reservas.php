@@ -43,8 +43,9 @@ class Reservas{
 
     static function disponibilidad(){ //antes de empezar este método he modificado en la bbdd las FK reserva_pista y reserva_usuario 
         $idPista = $_POST['id'];
-        $sentencia="SELECT * FROM reservas where id_pista = '$idPista'";
-        $result = DB::query($sentencia);
+        $sentenciaReserva="SELECT * FROM reservas where id_pista = '$idPista'";
+        
+        $result = DB::query($sentenciaReserva);
         $hoy = new DateTime();
 
         $arrayDias = Array();
@@ -53,7 +54,6 @@ class Reservas{
         // date_add($date,date_interval_create_from_date_string("40 days"));
         // echo date_format($date,"Y-m-d");
         $diaSiguiente = $hoy;
-        
         for($i=0;$i<7;$i++){
             $diaSiguiente = $diaSiguiente -> modify('+1 day');
             $dia = $diaSiguiente->format('Y-m-d');
@@ -61,14 +61,16 @@ class Reservas{
             //inserto en $arrayDias la lista de horas disponibles como valor asociado a la fecha (la fecha es la clave y la lista de disponibilidades es el valor) 
             
             //generar de forma dinámica las horas del día que podrian estar disponibles antes de insertarlas en array días (otro for empezando en la hora de inicio y terminando en la hora de fin por ejemplo de 9h a 22h)
+            $horas = Array();
             for($j=9;$j<=22;$j++){
-                $horas = Array();
+                
                 array_push($horas,$j);
             }
             //$todasLasReservas = getReservas();
-            $diaYHoras = Array();
-            array_push($diaYHoras, $dia, $horas);
-            array_push($arrayDias, $diaYHoras);
+            // $diaYHoras = Array();
+            // array_push($diaYHoras, $dia, $horas);
+            $arrayDias[$dia]=$horas;
+            // array_push($arrayDias, $diaYHoras);
             //solo introducir las horas que no están asociadas a ninguna reserva de las obtenidas en la bbdd            
             
         }

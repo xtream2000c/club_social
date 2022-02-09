@@ -33,8 +33,9 @@ function main() {
     })
     
     function reservaPista(id){
+        sessionStorage.setItem('idPista',id);//esto tiene que ir antes del href porque si no se va a la otra pagina sin
         location.href = 'reservas.html';
-        sessionStorage.setItem('idPista',id);
+        
     }
     
 
