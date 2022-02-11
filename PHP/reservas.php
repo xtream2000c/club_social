@@ -74,23 +74,47 @@ class Reservas{
         }
         return json_encode($arrayDias);
     }
-    // static function reservar(){
+    //esta funcion recibe por el post el id usuario, pistam fecha y hora y devuelve un objeto json con un parametro status que puede ser ok o error
+    static function reservar(){
+        $id_usuario=$_POST['id_usuario'];
+        $id_pista=$_POST['id_pista'];
+        $fecha=$_POST['fecha'];
+        $hora=$_POST['hora'];
 
-    // }
-//solución a las reservas
+        $sentencia = "INSERT INTO reservas (id_usuario,id_pista,fecha,hora) VALUES ('$id_usuario','$id_pista','$fecha','$hora')"; 
+        //falta validar los parametros del post
+        $result = DB::query($sentencia);
+
+        $mensaje= Array();
+        
+            if ($result){
+                $mensaje['status']= "OK";
+            }else{
+                $mensaje['status']= "ERROR";
+            }
+            
+            return json_encode($mensaje);//queda pendiente poner en la bbdd una restriccion para evitar que se guarden dos reservas iguales
+    }
+
+    //solución a las reservas
 //tendremos la lista con las pistas que hay, luego un objeto que muestre la disponibilidad de la pista
 //se coge de la bbdd las horas que ya están reservadas y se quitan de las horas de disponibilidad (apertura-cierre)
 //{ "id_instalacion" : 23, "nombre_instalacion" : "pista 23", "disponibilidad" : {"2022-02-01" : [8, 9, 10, 11], "2022-02-02" : [9, 10, 11, 14]}}
 }
 
 if($_POST['funcion']=='getReserva'){      
-    Reservas::getReservas();
+   // Reservas::getReservas();
     print Reservas::getReservas(); 
 }
 
 
 if($_POST['funcion']=='disponibilidad'){
-    Reservas::disponibilidad();
+   // Reservas::disponibilidad();
     print Reservas::disponibilidad();
+}
+
+if($_POST['funcion']=='reservar'){
+  //  Reservas::reservar();
+    print Reservas::reservar();
 }
 ?>
