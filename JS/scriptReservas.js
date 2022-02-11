@@ -28,7 +28,7 @@ function main(){
             'id':idPista
         },
         success : function(infoReservas){
-            //console.log(infoReservas);
+            console.log(infoReservas);
 
             // var nombrePista = storage.getItem(instalaciones[nombre_pista]);
             // console.log(nombrePista);
@@ -39,26 +39,25 @@ function main(){
                 let huecos = infoReservas[fecha];
                 //console.log(`${fecha}: ${infoReservas[fecha]}`);
                 //la lista de horas hay que generarlo de forma dinamica para que solo se metan las horas que estan disponibles
-                $('#tablaReservas').append(`<tr><td><h6>${fecha.nombre_pista}</h6></td><td><h6>${fecha}</h6></td><td><h6>
+                let select='';
+                if(huecos.length==0){
+                    select='SIN DISPONIBILIDAD';
+                }else{
+                    select='<select name="hora" id="hora">';
+                    //se genera una cadena y se le van concatenando los valores antes de meterla
+                    for(let i=0;i<huecos.length;i++){
+                        select = select+`<option value="${huecos[i]}">${huecos[i]}</option>`;
+                    }
+                    select=select+'</select>';
+                }
+                
+                $('#tablaReservas').append(`<tr><td><h6>${pista.nombre_pista}</h6></td><td><h6>${fecha}</h6></td><td><h6>
                 
                 <label for="hora">Escoge una hora:</label>&nbsp;
-                    <select name="hora" id="hora">
-                    <option value="${infoReservas[fecha][0]}">${infoReservas[fecha][0]}</option>
-                    <option value="${infoReservas[fecha][1]}">${infoReservas[fecha][1]}</option>
-                    <option value="${infoReservas[fecha][2]}">${infoReservas[fecha][2]}</option>
-                    <option value="${infoReservas[fecha][3]}">${infoReservas[fecha][3]}</option>
-                    <option value="${infoReservas[fecha][4]}">${infoReservas[fecha][4]}</option>
-                    <option value="${infoReservas[fecha][5]}">${infoReservas[fecha][5]}</option>
-                    <option value="${infoReservas[fecha][6]}">${infoReservas[fecha][6]}</option>
-                    <option value="${infoReservas[fecha][7]}">${infoReservas[fecha][7]}</option>
-                    <option value="${infoReservas[fecha][8]}">${infoReservas[fecha][8]}</option>
-                    <option value="${infoReservas[fecha][9]}">${infoReservas[fecha][9]}</option>
-                    <option value="${infoReservas[fecha][10]}">${infoReservas[fecha][10]}</option>
-                    <option value="${infoReservas[fecha][11]}">${infoReservas[fecha][11]}</option>
-                    <option value="${infoReservas[fecha][12]}">${infoReservas[fecha][12]}</option>
-                    <option value="${infoReservas[fecha][13]}">${infoReservas[fecha][13]}</option>
-
-                </select>
+                    
+                    `+select+`
+                    
+                
                 </h6></td> <td><a href="./reservas.html"><button class="btn btn-outline-secondary" type="button" id="${fecha.id_pista}">Reservar</button></a></td> </tr>`);
                 
             }

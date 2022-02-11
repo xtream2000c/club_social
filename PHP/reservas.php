@@ -11,17 +11,14 @@ class Reservas{
     public $fecha;
     public $hora;
 
-
     //Constructor
 
     function __construct($id_reserva,$id_usuario,$id_pista,$fecha,$hora){
-
         $this->id_reserva=$id_reserva;
         $this->id_usuario=$id_usuario;
         $this->id_pista=$id_pista; 
         $this->fecha=$fecha;
         $this->hora=$hora;
-
     }
 
     static function getReservas(){
@@ -37,7 +34,6 @@ class Reservas{
         foreach($result as $reserva) {
            array_push($arrayReservas, new Reservas($reserva['id_reserva'],$reserva ['id_usuario'],$reserva['id_pista'],$reserva['fecha'],$reserva['hora']));
         }
-
         return  ($arrayReservas);  // Devolvemos el Array
     }
 
@@ -50,49 +46,50 @@ class Reservas{
 
         $arrayDias = Array();
 
-        //$date=date_create("2013-03-15");
-        // date_add($date,date_interval_create_from_date_string("40 days"));
-        // echo date_format($date,"Y-m-d");
         $diaSiguiente = $hoy;
         for($i=0;$i<7;$i++){
-            $diaSiguiente = $diaSiguiente -> modify('+1 day');
+            $diaSiguiente = $diaSiguiente -> modify('+1 day');//voy añadiendo un día a la vez
             $dia = $diaSiguiente->format('Y-m-d');
             
             //inserto en $arrayDias la lista de horas disponibles como valor asociado a la fecha (la fecha es la clave y la lista de disponibilidades es el valor) 
             
-            //generar de forma dinámica las horas del día que podrian estar disponibles antes de insertarlas en array días (otro for empezando en la hora de inicio y terminando en la hora de fin por ejemplo de 9h a 22h)
+            //generar de forma dinámica las horas del día que podrian estar disponibles antes de insertarlas en arrayDias (otro for empezando en la hora de inicio y terminando en la hora de fin por ejemplo de 9h a 22h)
             $horas = Array();
-            for($j=9;$j<=22;$j++){
-                
+            for($j=9;$j<=22;$j++){ 
                 array_push($horas,$j);
             }
-            //$todasLasReservas = getReservas();
-            // $diaYHoras = Array();
-            // array_push($diaYHoras, $dia, $horas);
             $arrayDias[$dia]=$horas;
-            // array_push($arrayDias, $diaYHoras);
-            //solo introducir las horas que no están asociadas a ninguna reserva de las obtenidas en la bbdd            
-            
+            //solo introducir las horas que no están asociadas a ninguna reserva de las obtenidas en la bbdd
+        }
+        foreach ($result as $reserva){
+            $fechaReserva=$reserva['fecha'];
+            $horaReserva=$reserva['hora'];
+            if(array_key_exists($fechaReserva, $arrayDias)){//si la fecha de esta reserva está en este arrayDias 
+                $keyEliminar = array_search($horaReserva,$arrayDias[$fechaReserva],false);//devuelve la clave de la hora a eliminar en el array de horas disponibles para esa fecha, si esto no es falso entonces hay que eliminar la hora
+                if (!$keyEliminar){
+                    unset($arrayDias[$fechaReserva][$keyEliminar]);//borra directamente la hora ya reservada del objeto que tiene fechas y horas
+                    $arrayDias[$fechaReserva]=array_values($arrayDias[$fechaReserva]);//se reindexa la lista para evitar posiciones vacias que luego convierten el jason de esta lista en un diccionario
+                }
+            }   
         }
         return json_encode($arrayDias);
     }
+    // static function reservar(){
 
-//posible solución a las reservas
+    // }
+//solución a las reservas
 //tendremos la lista con las pistas que hay, luego un objeto que muestre la disponibilidad de la pista
 //se coge de la bbdd las horas que ya están reservadas y se quitan de las horas de disponibilidad (apertura-cierre)
 //{ "id_instalacion" : 23, "nombre_instalacion" : "pista 23", "disponibilidad" : {"2022-02-01" : [8, 9, 10, 11], "2022-02-02" : [9, 10, 11, 14]}}
-
-//hay dos posibilidades, obtener la disponibilidad o obtener las reservas
-
-// if($_POST['funcion']=='getReserva'){      
-//     Reservas::getReservas();
-//     print Reservas::getReservas() 
-// }
-
-
 }
+
+if($_POST['funcion']=='getReserva'){      
+    Reservas::getReservas();
+    print Reservas::getReservas(); 
+}
+
+
 if($_POST['funcion']=='disponibilidad'){
-   
     Reservas::disponibilidad();
     print Reservas::disponibilidad();
 }
