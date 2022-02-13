@@ -89,6 +89,19 @@ class Reservas{
         
             if ($result){
                 $mensaje['status']= "OK";
+                //aqui se envía el correo electrónico de confirmación
+                // mail(
+                //     string $to,
+                //     string $subject,
+                //     string $message,
+                //     string $additional_headers = ?,
+                //     string $additional_parameters = ?
+                // ): bool
+                mail(
+                    'ronaldgarcia.20@campuscamara.es',
+                    'Reserva realizada correctamente',
+                    'Su reserva para el día '.$fecha.' a las '.$hora.' horas ha sido realizada correctamente.'
+                );
             }else{
                 $mensaje['status']= "ERROR";
             }
