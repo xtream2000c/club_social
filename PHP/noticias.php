@@ -27,6 +27,30 @@ class Noticias{
         return json_encode($noticias);
     }
 
+    static function setNoticias(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $titulo_noticia = $_POST['titulo_noticia'];
+        $cuerpo_noticia = $_POST['cuerpo_noticia'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = " INSERT INTO noticias (id,titulo_noticia,cuerpo_noticia) VALUES ('','$titulo_noticia','$cuerpo_noticia')";
+
+            DB::query($sentencia);
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
+
 }
 print(Noticias::getNoticias());//imprime todas las noticias en JSON, llama a getNoticias()
 ?>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear noticia</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="Boostrap/css/bootstrap.min.css">
+    
+    <script src="Boostrap/js/bootstrap.min.js"></script>
+    <script src="JS/jquery-3.6.0.min.js"></script>
+    <script src="JS/scriptSesionIniciada.js"></script>
+    <script src="JS/scriptSession.js"></script>
+    <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
+    
+    <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
+</head>
+<body class="h-100 bg-secondary">
+
+    <div class="p-3 bg-secondary text-white text-center">
+        <h1>Club Social</h1>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Logo</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="index.html">inicio</a></li>
+            <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
+            <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
+            <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
+            <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
+            <li><a class="dropdown-item" href="contacto.html">Contactos</a></li>
+
+          </ul>
+
+          <a class="btn btn-secondary" type="button" href="inicioSesion.html">Iniciar Sesion</a>
+
+        </div>
+        
+      </nav>
+
+    <div class="container-fluid h-75">
+        <div class="row h-100">
+            <div class="col-md-12 align-items-center">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-xl-8 bg-info py-3" style="border-radius: 0.5rem;">
+                        <form id="creaNoticia" method="post">
+                            <h1>Crear noticia</h1>
+                                    <label for="titulo_noticia" class="form-label">Título noticia</label>
+                                    <input type="text" id="titulo_noticia" class="form-control">
+                                
+                                    <label for="cuerpo_noticia" class="form-label">Descripción</label>
+                                    <input type="text" id="cuerpo_noticia" class="form-control">
+                                
+                                    <input type="submit" class="btn btn-primary mt-3">
+                            
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+
+            
+        </div>
+
+        
+    </div>
+
+</body>
+</html>
