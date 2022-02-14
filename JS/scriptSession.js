@@ -50,7 +50,7 @@
                 if(user){
 
                     sessionStorage.setItem("usuarioSesion", user); //USER YA ES UN JSON NO HACE FALTA HACER JSON.stringify()
-
+                    console.log(user);
                     location.href = 'index.html';
 
                 }else{

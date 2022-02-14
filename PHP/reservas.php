@@ -59,8 +59,8 @@ class Reservas{
                 array_push($horas,$j);
             }
             $arrayDias[$dia]=$horas;
-            //solo introducir las horas que no están asociadas a ninguna reserva de las obtenidas en la bbdd
         }
+        //solo introducir las horas que no están asociadas a ninguna reserva de las obtenidas en la bbdd
         foreach ($result as $reserva){
             $fechaReserva=$reserva['fecha'];
             $horaReserva=$reserva['hora'];
@@ -74,7 +74,7 @@ class Reservas{
         }
         return json_encode($arrayDias);
     }
-    //esta funcion recibe por el post el id usuario, pistam fecha y hora y devuelve un objeto json con un parametro status que puede ser ok o error
+    //esta funcion recibe por el post el id usuario, pista fecha y hora, devuelve un objeto json con un parametro status que puede ser ok o error
     static function reservar(){
         $id_usuario=$_POST['id_usuario'];
         $id_pista=$_POST['id_pista'];

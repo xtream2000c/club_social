@@ -105,7 +105,7 @@ if($_POST['funcion']=='setUsuario'){
     // print('estoy aqui');
 }
 if($_POST['funcion']=='getUsuario'){
-    Usuarios::getUsuario();  
+    //Usuarios::getUsuario();  
     print Usuarios::getUsuario(); 
 }
 
