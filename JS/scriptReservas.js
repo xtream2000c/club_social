@@ -1,6 +1,9 @@
 window.onload = main;
 
 function main(){
+
+    compruebaSesion()
+
     var idPista = sessionStorage.getItem('idPista');
     var instalaciones = JSON.parse(sessionStorage.getItem('instalaciones'));//esto es una cadena y necesito un json por eso se le pone el JSON.parse
     
