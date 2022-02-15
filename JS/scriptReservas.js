@@ -41,7 +41,7 @@ function main(){
                 data : {
                     'funcion': 'reservar',
                     'id_pista':pista,
-                    'id_usuario':1,//aqui hay que poner el id del usuario obtenido del session storage ESTA PENDIENTE
+                    'id_usuario':5,//aqui hay que poner el id del usuario obtenido del session storage ESTA PENDIENTE
                     'fecha':fecha,
                     'hora':hora
                 },
