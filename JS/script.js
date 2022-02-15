@@ -43,12 +43,10 @@ function main() {
     }
     
 
-
-
-
     $.ajax({
         type:"POST",
         url: "PHP/noticias.php",
+        data: {'funcion':'getNoticias'},
         dataType: "JSON",
         success : function(noticias){
             //console.log(noticias);
@@ -83,6 +81,7 @@ function main() {
     $.ajax({
         type:"POST",
         url: "PHP/eventos.php",
+        data: {'funcion':'getEventos'},
         dataType: "JSON",
         success : function(eventos){
             //console.log(eventos);

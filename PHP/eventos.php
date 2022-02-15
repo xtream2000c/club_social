@@ -26,7 +26,45 @@ class Eventos{
         return json_encode($eventos);
     }
 
+    static function setEventos(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $titulo_evento = $_POST['titulo_evento'];
+        $cuerpo_evento = $_POST['cuerpo_evento'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = " INSERT INTO eventos (id_eventos,titulo_evento,cuerpo_evento) VALUES ('','$titulo_evento','$cuerpo_evento')";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+
+            $errores[]=$e->getMessage();//añado el mensaje del error
+
+        }
+
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
     
 }
-print(Eventos::getEventos());//imprime todas los eventos en JSON, llama a getEventos()
+
+if($_POST['funcion']=='setEventos'){
+
+    Eventos::setEventos(); // Llama a la funcion para crear eventos
+
+}
+if($_POST['funcion']=='getEventos'){
+
+    print(Eventos::getEventos());//imprime todas los eventos en JSON, llama a getEventos()
+
+}
+
 ?>

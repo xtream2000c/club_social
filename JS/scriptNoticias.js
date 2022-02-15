@@ -2,7 +2,7 @@ window.onload = main;
 
 function main(){
 
-    document.getElementById('creaNoticia').addEventListener("submit",creaNoticia,false);
+    
 
     compruebaSesion();
 
@@ -22,24 +22,3 @@ function main(){
     }
 }
 
-function creaNoticia(event){
-    event.preventDefault();
-    let titulo_noticia = document.getElementById('titulo_noticia').value;
-    let cuerpo_noticia = document.getElementById('cuerpo_noticia').value;
-            
-    $.ajax({
-        type:"POST",
-        url: "PHP/noticias.php",//se modifica la ruta
-        data: {
-            'funcion':'setNoticias','titulo_noticia' : titulo_noticia, 'cuerpo_noticia':cuerpo_noticia
-        },
-        success : function(usu){
-            console.log(usu);
-            
-        },
-        error : function(xhr,ajaxOptions, thrownError){
-             alert(xhr.status);
-             alert(thrownError);
-        }
-    })
-}
