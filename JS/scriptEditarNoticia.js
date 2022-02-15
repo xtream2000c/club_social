@@ -4,23 +4,33 @@ function main(){
 
     compruebaSesion();
 
-document.getElementById('creaNoticia').addEventListener("submit",creaNoticia,false);
+    var noticia = JSON.parse(sessionStorage.getItem("noticiaEditar"));
+
+    document.getElementById("titulo_noticiaEditar").value= noticia["titulo_noticia"];
+    document.getElementById("cuerpo_noticiaEditar").value= noticia["cuerpo_noticia"];
+
+    document.getElementById("editarNoticia").addEventListener("submit", editarNoticia, false)
 
 }
 
-function creaNoticia(event){
+function editarNoticia(event) {
+   
     event.preventDefault();
-    let titulo_noticia = document.getElementById('titulo_noticia').value;
-    let cuerpo_noticia = document.getElementById('cuerpo_noticia').value;
-            
+
+    var noticia = JSON.parse(sessionStorage.getItem("noticiaEditar"));
+
+    let titulo_noticia = document.getElementById("titulo_noticiaEditar").value;
+    let cuerpo_noticia = document.getElementById("cuerpo_noticiaEditar").value;
+    let id_editar = noticia['id_noticia'];
     $.ajax({
         type:"POST",
         url: "PHP/noticias.php",//se modifica la ruta
         data: {
-            'funcion':'setNoticias','titulo_noticia' : titulo_noticia, 'cuerpo_noticia':cuerpo_noticia
+            'funcion':'editarNoticia','id_editar' : id_editar ,'titulo_noticia' : titulo_noticia, 'cuerpo_noticia':cuerpo_noticia
         },
-        success : function(){
-            alert("noticia insertada con exito");
+        success : function(noticia){
+            alert("noticia editada con exito");
+
             $.ajax({
                 type:"POST",
                 url: "PHP/noticias.php",
@@ -43,11 +53,14 @@ function creaNoticia(event){
                      alert("No se ha podido conectar con la base de datos para obtener las noticias");
                 }
             })
-            location.href="noticiasPresidente.html";
+
+            location.href = "noticiasPresidente.html"
+            
         },
         error : function(xhr,ajaxOptions, thrownError){
             alert(xhr.status);
             alert(thrownError);
         }
     })
+
 }

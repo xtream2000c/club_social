@@ -2,6 +2,7 @@ window.onload = main;
 
 function main() {
     
+    compruebaSesion();
     document.getElementById("contacto").addEventListener("submit", enviarCorreo, false)
 
 }

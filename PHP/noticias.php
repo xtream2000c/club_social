@@ -75,6 +75,32 @@ class Noticias{
         
     }
 
+    static function editarNoticia(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $id_editar = $_POST['id_editar'];
+        $titulo_noticia = $_POST['titulo_noticia'];
+        $cuerpo_noticia = $_POST['cuerpo_noticia'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = "UPDATE noticias SET titulo_noticia = '$titulo_noticia' , cuerpo_noticia =  '$cuerpo_noticia' WHERE noticias.id_noticias = $id_editar";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
+
 }
 
 
@@ -92,6 +118,12 @@ if($_POST['funcion']=='getNoticias'){
 if($_POST['funcion']=='EliminarNoticia'){
 
     Noticias::eliminarNoticias();//Llama a eliminar una noticia
+
+}
+
+if($_POST['funcion']=='editarNoticia'){
+
+    Noticias::editarNoticia();//Llama a eliminar una noticia
 
 }
 

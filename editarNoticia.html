@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrar noticias</title>
+    <title>Editar noticia</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="Boostrap/css/bootstrap.min.css">
-    <script src="Boostrap/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="Boostrap/js/bootstrap.min.js"></script>
     <script src="JS/jquery-3.6.0.min.js"></script>
     <script src="JS/scriptSesionIniciada.js"></script>
-    <script src="JS/scriptNoticiasPresidente.js"></script>
+    <script src="JS/scriptEditarNoticia.js"></script>
     <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
+    
     <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
 </head>
-<body class="bg-secondary">
+<body class="h-100 bg-secondary">
 
     <div class="p-3 bg-secondary text-white text-center">
-      <img class="" src="./img/ClubSocialLogo2.png" height="100px" alt="logoClubSocial">
+        <img class="" src="./img/ClubSocialLogo2.png" height="100px" alt="logoClubSocial">
     </div>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
@@ -25,7 +27,7 @@
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="index.html">inicio</a></li>
-            <li><a class="dropdown-item active" href="noticias.html">Noticias</a></li>
+            <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
             <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
             <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
             <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
@@ -37,20 +39,34 @@
 
         </div>
         
-    </nav>
+      </nav>
 
-    <div class="container mt-4">
-      <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
-          <a href="creaNoticia.html" class="btn btn-primary">Crear nueva noticia</a>
+    <div class="container-fluid h-75">
+        <div class="row h-100">
+            <div class="col-md-12 align-items-center">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-xl-8 bg-info py-3" style="border-radius: 0.5rem;">
+                        <form id="editarNoticia" method="post">
+                            <h1>Editar noticia</h1>
+                                    <label for="titulo_noticiaEditar" class="form-label">Título noticia</label>
+                                    <input type="text" id="titulo_noticiaEditar" class="form-control">
+                                
+                                    <label for="cuerpo_noticiaEditar" class="form-label">Descripción</label>
+                                    <input type="text" id="cuerpo_noticiaEditar" class="form-control">
+                                
+                                    <input type="submit" class="btn btn-primary mt-3">
+                            
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+
+            
         </div>
-      </div>
-    </div>
 
-    <div id="noticias" class="container">
-        <div class="row">
-
-        </div>
+        
     </div>
 
     <footer class="footer mt-auto pt-3">
@@ -71,7 +87,6 @@
           </div>
         </div>
       </footer>
-      
-</body>
 
+</body>
 </html>
