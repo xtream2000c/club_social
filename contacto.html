@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" class="h-100">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index Club Social</title>
+        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="Boostrap/css/bootstrap.min.css">
+        <script src="Boostrap/js/bootstrap.bundle.min.js"></script>
+        <script src="JS/jquery-3.6.0.min.js"></script>
+        <script src="JS/scriptSesionIniciada.js"></script>
+        <script src="JS/scriptContacto.js"></script>
+        
+        <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
+        <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
+    </head>
+    <body class="bg-secondary d-flex flex-column h-100">
+
+        <div class="p-3 bg-secondary text-white text-center">
+            <h1>Club Social</h1>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+              <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Logo</a>
+              <ul class="dropdown-menu">
+    
+                <li><a class="dropdown-item active" href="index.html">inicio</a></li>
+                <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
+                <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
+                <li><a class="dropdown-item" href="#localizacion">Donde estamos</a></li>
+                <li><a class="dropdown-item" href="#instalaciones">Instalaciones - Precios</a></li>
+                <li><a class="dropdown-item" href="contacto.html">Contactos</a></li>
+    
+              </ul>
+    
+              <a class="btn btn-secondary" type="button" href="inicioSesion.html" id="btnsesion">Iniciar Sesion</a>
+    
+            </div>
+            
+        </nav>
+
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form action="self" method="post" id="contacto">
+                        <div class="mb-3">
+                          <label for="nombre" class="form-label">Nombre y apellidos</label>
+                          <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre y apellidos">
+                        </div>
+                        <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" name="email" id="email" placeholder="email@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="asunto" class="form-label">Asunto</label>
+                            <input type="text" class="form-control" name="asunto" id="asunto" placeholder="Asunto del correo">
+                        </div>
+                        <div class="mb-3">
+                          <label for="cuerpo" class="form-label">Cuerpo</label>
+                          <textarea class="form-control" name="cuerpo" id="cuerpo" rows="3" placeholder="Cuerpo del correo"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer mt-auto pt-3">
+            <div class="container-fluid bg-dark text-white">
+              <div class="row pt-2">
+                  <div class="col-4">
+                    <h4>Contacto</h4>
+                    <a href="contacto.html" class="btn btn-primary">Contacto</a>
+                  </div>
+                  <div class="col-4">
+                    <h4>Aviso legal</h4>
+                    <p>Todos los derechos reservados</p>
+                  </div>
+                  <div class="col-4">
+                    <h4>Copyright</h4><h6>2022</h6>
+                    <p>Tomás Moreno, Ronald García, Carlos Maroto</p>
+                  </div>
+              </div>
+            </div>
+          </footer>
+
+    </body>
+</html>
