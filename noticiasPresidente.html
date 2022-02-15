@@ -10,14 +10,14 @@
     <script src="Boostrap/js/bootstrap.bundle.min.js"></script>
     <script src="JS/jquery-3.6.0.min.js"></script>
     <script src="JS/scriptSesionIniciada.js"></script>
-    <script src="JS/scriptEventos.js"></script>
+    <script src="JS/scriptNoticiasPresidente.js"></script>
     <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
     <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
 </head>
 <body class="bg-secondary">
 
     <div class="p-3 bg-secondary text-white text-center">
-        <img class="" src="./img/ClubSocialLogo2.png" height="100px" alt="logoClubSocial">
+        <h1>Club Social</h1>
     </div>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
@@ -25,8 +25,8 @@
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="index.html">inicio</a></li>
-            <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
-            <li><a class="dropdown-item active" href="eventos.html">Eventos</a></li>
+            <li><a class="dropdown-item active" href="noticias.html">Noticias</a></li>
+            <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
             <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
             <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
             <li><a class="dropdown-item" href="contacto.html">Contactos</a></li>
@@ -39,7 +39,15 @@
         
     </nav>
 
-    <div id="eventos" class="container">
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+          <a href="creaNoticia.html" class="btn btn-primary">Crear nueva noticia</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="noticias" class="container">
         <div class="row">
 
         </div>
@@ -63,7 +71,7 @@
           </div>
         </div>
       </footer>
-
+      
 </body>
 
 </html>
