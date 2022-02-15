@@ -38,13 +38,10 @@ function main() {
         
     }
     
-
-
-
-
     $.ajax({
         type:"POST",
         url: "PHP/noticias.php",
+        data: {'funcion':'getNoticias'},
         dataType: "JSON",
         success : function(noticias){
             //console.log(noticias);
@@ -59,12 +56,13 @@ function main() {
                     let notic = noticias[i];
                     if(i==noticias.length-1){//solo en la primera iteración se pone data-bs-slide-to="0" y en el inner la clase active, luego el el else voy añadiendo mas data-bs-slide-to [i], y en el inner ya no lleva la clase active
                        // console.log('probando noticias dentro del for');
-                        $('#noticias .carousel-indicators').append(`<button type="button" data-bs-target="#noticias" data-bs-slide-to="${j}" class="active"></button>`);   
-                        $('#noticias .carousel-inner').append(`<div class="carousel-item active"><h1>${notic.titulo_noticia}</h1><p>${notic.cuerpo_noticia}</p><br></div>`);    
+                        $('#noticias .carousel-inner').append(`<div class="carousel-item active"><h1>${notic.titulo_noticia}</h1><p>${notic.cuerpo_noticia}</p><br></div>`);
+                        $('#noticias .carousel-indicators').append(`<button type="button" data-bs-target="#noticias" data-bs-slide-to="${j}" class="active"></button>`);    
                     }else{
-                        $('#noticias .carousel-indicators').append(`<button type="button" data-bs-target="#noticias" data-bs-slide-to="${i}" class="active"></button>`);
+                        $('#noticias .carousel-indicators').append(`<button type="button" data-bs-target="#noticias" data-bs-slide-to="${j}"></button>`);
                         $('#noticias .carousel-inner').append(`<div class="carousel-item"><h1>${notic.titulo_noticia}</h1><p>${notic.cuerpo_noticia}</p><br></div>`);
-                    }   
+                    } 
+                    j++;  
                 }
 
             }else{
@@ -75,9 +73,11 @@ function main() {
              alert("No se ha podido conectar con la base de datos para obtener las noticias");
         }
     })
+    
     $.ajax({
         type:"POST",
         url: "PHP/eventos.php",
+        data: {'funcion':'getEventos'},
         dataType: "JSON",
         success : function(eventos){
             //console.log(eventos);
@@ -91,9 +91,10 @@ function main() {
                     $('#eventos .carousel-indicators').append(`<button type="button" data-bs-target="#eventos" data-bs-slide-to="${j}" class="active"></button>`);
                     $('#eventos .carousel-inner').append(`<div class="carousel-item active"><h1>${even.titulo_evento}</h1><p>${even.cuerpo_evento}</p><br></div>`);
                 }else{
-                    $('#eventos .carousel-indicators').append(`<button type="button" data-bs-target="#eventos" data-bs-slide-to="${i}" class="active"></button>`);
+                    $('#eventos .carousel-indicators').append(`<button type="button" data-bs-target="#eventos" data-bs-slide-to="${j}"></button>`);
                     $('#eventos .carousel-inner').append(`<div class="carousel-item"><h1>${even.titulo_evento}</h1><p>${even.cuerpo_evento}</p><br></div>`);
                 }
+                j++;
             }
         },
         error : function(XHR, status){

@@ -36,7 +36,7 @@ class Noticias{
         $errores=[];//se crea un array que contendrá los errores
 
         try{
-            $sentencia = " INSERT INTO noticias (id,titulo_noticia,cuerpo_noticia) VALUES ('','$titulo_noticia','$cuerpo_noticia')";
+            $sentencia = " INSERT INTO noticias (id_noticias,titulo_noticia,cuerpo_noticia) VALUES ('','$titulo_noticia','$cuerpo_noticia')";
 
             DB::query($sentencia);
         }catch(Exception $e){
@@ -52,5 +52,17 @@ class Noticias{
     }
 
 }
-print(Noticias::getNoticias());//imprime todas las noticias en JSON, llama a getNoticias()
+
+
+if($_POST['funcion']=='setNoticias'){
+
+    Noticias::setNoticias(); // Llama a la funcion para crear noticia
+
+}
+if($_POST['funcion']=='getNoticias'){
+
+    print(Noticias::getNoticias());//imprime todas las noticias en JSON, llama a getNoticias()
+
+}
+
 ?>

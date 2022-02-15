@@ -43,12 +43,10 @@ function main() {
     }
     
 
-
-
-
     $.ajax({
         type:"POST",
         url: "PHP/noticias.php",
+        data: {'funcion':'getNoticias'},
         dataType: "JSON",
         success : function(noticias){
             //console.log(noticias);
@@ -80,9 +78,11 @@ function main() {
              alert("No se ha podido conectar con la base de datos para obtener las noticias");
         }
     })
+    
     $.ajax({
         type:"POST",
         url: "PHP/eventos.php",
+        data: {'funcion':'getEventos'},
         dataType: "JSON",
         success : function(eventos){
             //console.log(eventos);
