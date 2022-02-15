@@ -61,20 +61,34 @@ class Reservas{
             $arrayDias[$dia]=$horas;
         }
         //solo introducir las horas que no están asociadas a ninguna reserva de las obtenidas en la bbdd
-        foreach ($result as $reserva){
+        foreach($result as $reserva){
             $fechaReserva=$reserva['fecha'];
             $horaReserva=$reserva['hora'];
             if(array_key_exists($fechaReserva, $arrayDias)){//si la fecha de esta reserva está en este arrayDias 
+                //print($fechaReserva);
                 $keyEliminar = array_search($horaReserva,$arrayDias[$fechaReserva],false);//devuelve la clave de la hora a eliminar en el array de horas disponibles para esa fecha, si esto no es falso entonces hay que eliminar la hora
+<<<<<<< HEAD
                 if (false != $keyEliminar){ //al parecer !$keyEliminar no le gusta, sólo funcionaba cuando $keyEliminar era 0
                     //unset($arrayDias[$fechaReserva][$keyEliminar]);//borra directamente la hora ya reservada del objeto que tiene fechas y horas
                     //$arrayDias[$fechaReserva]=array_values($arrayDias[$fechaReserva]);//se reindexa la lista para evitar posiciones vacias que luego convierten el jason de esta lista en un diccionario
                     array_splice($arrayDias[$fechaReserva],$keyEliminar,1);
+=======
+                //print("Hora de la reserva" . $horaReserva);
+                //print_r("Dia que quiero reservar" . $fechaReserva);
+                //print_r($keyEliminar);
+                if (!$keyEliminar){
+                    unset($arrayDias[$fechaReserva][$keyEliminar]);//borra directamente la hora ya reservada del objeto que tiene fechas y horas
+                    $arrayDias[$fechaReserva]=array_values($arrayDias[$fechaReserva]);//se reindexa la lista para evitar posiciones vacias que luego convierten el jason de esta lista en un diccionario
+                }else{
+                    unset($arrayDias[$fechaReserva][$keyEliminar]);//borra directamente la hora ya reservada del objeto que tiene fechas y horas
+                    $arrayDias[$fechaReserva]=array_values($arrayDias[$fechaReserva]);//se reindexa la lista para evitar posiciones vacias que luego convierten el jason de esta lista en un diccionario
+>>>>>>> eb28168a5a895b483d5b54a68d0d4184bd1cd684
                 }
             }   
         }
         return json_encode($arrayDias);
     }
+
     //esta funcion recibe por el post el id usuario, pista fecha y hora, devuelve un objeto json con un parametro status que puede ser ok o error
     static function reservar(){
         $id_usuario=$_POST['id_usuario'];
@@ -100,7 +114,7 @@ class Reservas{
                 // ): bool
                 //select email from usuarios where id = $idUsuario
                 mail(
-                    'ronaldgarcia.20@campuscamara.es',
+                    'carlosmaroto.21@campuscamara.es',
                     'Reserva realizada correctamente',
                     'Su reserva para el día '.$fecha.' a las '.$hora.' horas ha sido realizada correctamente.'
                 );
