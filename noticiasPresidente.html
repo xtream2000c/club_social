@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="h-100">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +10,12 @@
     <script src="Boostrap/js/bootstrap.bundle.min.js"></script>
     <script src="JS/jquery-3.6.0.min.js"></script>
     <script src="JS/scriptSesionIniciada.js"></script>
-    <script src="JS/scriptPerfil.js"></script>
-
+    <script src="JS/scriptNoticiasPresidente.js"></script>
     <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
     <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
 </head>
-<body class="bg-secondary d-flex flex-column h-100">
+<body class="bg-secondary">
+
     <div class="p-3 bg-secondary text-white text-center">
         <h1>Club Social</h1>
     </div>
@@ -25,7 +25,7 @@
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="index.html">inicio</a></li>
-            <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
+            <li><a class="dropdown-item active" href="noticias.html">Noticias</a></li>
             <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
             <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
             <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
@@ -37,79 +37,23 @@
 
         </div>
         
-      </nav>
+    </nav>
 
-
-      <div class="container mt-5">
-        <div class="row justify-content-center">
-
-            <div class="col-sm-10 col-md-8 bg-info text-center rounded">
-                <h1 id="nombreUsuario">Usuario</h1>
-
-                <div class="row">
-                    <div class="col-md-6 mt-2">
-                        <h3>Nombre</h3>
-                    </div>
-                    <div class="col-md-6 mt-2">
-                        <p id="nombre"></p>
-                    </div>
-
-                    <hr>
-
-                    <div class="col-md-6 mt-2">
-                        <h3>Apellidos</h3>
-                    </div>
-                    <div class="col-md-6 mt-2">
-                        <p id="apellidos"></p>
-                    </div>
-
-                    <hr>
-
-                    <div class="col-md-6 mt-2">
-                        <h3>Edad</h3>
-                    </div>
-                    <div class="col-md-6 mt-2">
-                        <p id="edad"></p>
-                    </div>
-
-                    <hr>
-
-                    <div class="col-md-6 mt-2">
-                        <h3>Miembros</h3>
-                    </div>
-                    <div class="col-md-6 mt-2">
-                        <p id="miembros"></p>
-                    </div>
-
-                    <hr>
-
-                    <div class="col-md-6 mt-2">
-                        <h3>Tipo </h3>
-                    </div>
-                    <div class="col-md-6 mt-2">
-                        <p id="tipoUsuario"></p>
-                    </div>
-
-                    <hr>
-
-                    <div class="container-fluid">
-                      <div class="row" id="extras">
-                        
-                      </div>
-                    </div>
-                    
-
-                    
-
-                </div>
-
-                <button class="btn btn-danger mb-3" id="cerrarSesion">Cerrar sesion</button>
-
-            </div>
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+          <a href="creaNoticia.html" class="btn btn-primary">Crear nueva noticia</a>
         </div>
       </div>
+    </div>
 
-      <footer class="footer mt-auto pt-3">
+    <div id="noticias" class="container">
+        <div class="row">
+
+        </div>
+    </div>
+
+    <footer class="footer mt-auto pt-3">
         <div class="container-fluid bg-dark text-white">
           <div class="row pt-2">
               <div class="col-4">
@@ -127,6 +71,7 @@
           </div>
         </div>
       </footer>
+      
+</body>
 
-    </body>
 </html>
