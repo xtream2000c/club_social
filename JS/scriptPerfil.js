@@ -2,9 +2,30 @@ window.onload = inicio;
 
 function inicio(){
 
+
     compruebaSesion();
+    
+    
 
     var usuarioSesion = JSON.parse(sessionStorage.getItem("usuarioSesion"));
+
+    if(usuarioSesion){
+        var usuario = usuarioSesion[0];
+        if(usuario['tipo_usuario'] == "Presidente"){
+
+            var extras = '<div class="col-md-6 my-2"><a class="btn btn-primary" id="noticias" href="noticiasPresidente.html" >Administrar Noticias</a></div> <div class="col-md-6 my-2"><a class="btn btn-primary" id="eventos" >Administrar Eventos</a></div><hr>'
+
+            document.getElementById('extras').innerHTML= extras;
+
+        }
+        if(usuario['tipo_usuario'] == "Administrador"){
+
+            var extras = '<div class="col-md-6 my-2"><a class="btn btn-primary" id="noticias" >Administrar Miembros</a></div> <div class="col-md-6 my-2"><a class="btn btn-primary" id="eventos" >Administrar Instalaciones</a></div><hr>'
+
+            document.getElementById('extras').innerHTML= extras;
+
+        }
+    }
 
     document.getElementById('nombreUsuario').innerHTML = usuarioSesion[0].usuario;
 

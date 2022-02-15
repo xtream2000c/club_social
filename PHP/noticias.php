@@ -51,6 +51,30 @@ class Noticias{
         
     }
 
+    static function eliminarNoticias(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $id_eliminar = $_POST['id_eliminar'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = "DELETE FROM noticias WHERE noticias.id_noticias = $id_eliminar";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
+
 }
 
 
@@ -62,6 +86,12 @@ if($_POST['funcion']=='setNoticias'){
 if($_POST['funcion']=='getNoticias'){
 
     print(Noticias::getNoticias());//imprime todas las noticias en JSON, llama a getNoticias()
+
+}
+
+if($_POST['funcion']=='EliminarNoticia'){
+
+    Noticias::eliminarNoticias();//Llama a eliminar una noticia
 
 }
 
