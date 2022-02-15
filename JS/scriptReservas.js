@@ -33,7 +33,10 @@ function main(){
             fecha=$(tr).find('.fecha').text();
             hora=$(tr).find('.hora').val();
             console.log(`se está intentando reservar la pista ${pista} el dia ${fecha} a las ${hora} horas`);
-
+            
+            var usuarioSesion = JSON.parse(sessionStorage.getItem("usuarioSesion"));
+            var idUser = usuarioSesion[0].id;
+            console.log(idUser);
             $.ajax({
                 type:"POST",
                 url: "PHP/reservas.php",//se modifica la ruta
@@ -41,7 +44,7 @@ function main(){
                 data : {
                     'funcion': 'reservar',
                     'id_pista':pista,
-                    'id_usuario':5,//aqui hay que poner el id del usuario obtenido del session storage ESTA PENDIENTE
+                    'id_usuario':idUser,//aqui hay que poner el id del usuario obtenido del session storage ESTA PENDIENTE
                     'fecha':fecha,
                     'hora':hora
                 },
