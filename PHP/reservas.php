@@ -38,7 +38,7 @@ class Reservas{
     }
 
     static function disponibilidad(){ //antes de empezar este método he modificado en la bbdd las FK reserva_pista y reserva_usuario 
-        $idPista = $_POST['id'];
+        $idPista = $_REQUEST['id']; //$_REQUEST busca valores tanto en $_GET como en $_POST
         $sentenciaReserva="SELECT * FROM reservas where id_pista = '$idPista'";
         
         $result = DB::query($sentenciaReserva);
@@ -66,9 +66,10 @@ class Reservas{
             $horaReserva=$reserva['hora'];
             if(array_key_exists($fechaReserva, $arrayDias)){//si la fecha de esta reserva está en este arrayDias 
                 $keyEliminar = array_search($horaReserva,$arrayDias[$fechaReserva],false);//devuelve la clave de la hora a eliminar en el array de horas disponibles para esa fecha, si esto no es falso entonces hay que eliminar la hora
-                if (!$keyEliminar){
-                    unset($arrayDias[$fechaReserva][$keyEliminar]);//borra directamente la hora ya reservada del objeto que tiene fechas y horas
-                    $arrayDias[$fechaReserva]=array_values($arrayDias[$fechaReserva]);//se reindexa la lista para evitar posiciones vacias que luego convierten el jason de esta lista en un diccionario
+                if (false != $keyEliminar){ //al parecer !$keyEliminar no le gusta, sólo funcionaba cuando $keyEliminar era 0
+                    //unset($arrayDias[$fechaReserva][$keyEliminar]);//borra directamente la hora ya reservada del objeto que tiene fechas y horas
+                    //$arrayDias[$fechaReserva]=array_values($arrayDias[$fechaReserva]);//se reindexa la lista para evitar posiciones vacias que luego convierten el jason de esta lista en un diccionario
+                    array_splice($arrayDias[$fechaReserva],$keyEliminar,1);
                 }
             }   
         }
@@ -97,6 +98,7 @@ class Reservas{
                 //     string $additional_headers = ?,
                 //     string $additional_parameters = ?
                 // ): bool
+                //select email from usuarios where id = $idUsuario
                 mail(
                     'ronaldgarcia.20@campuscamara.es',
                     'Reserva realizada correctamente',
@@ -115,18 +117,18 @@ class Reservas{
 //{ "id_instalacion" : 23, "nombre_instalacion" : "pista 23", "disponibilidad" : {"2022-02-01" : [8, 9, 10, 11], "2022-02-02" : [9, 10, 11, 14]}}
 }
 
-if($_POST['funcion']=='getReserva'){      
+if($_REQUEST['funcion']=='getReserva'){      
    // Reservas::getReservas();
     print Reservas::getReservas(); 
 }
 
 
-if($_POST['funcion']=='disponibilidad'){
+if($_REQUEST['funcion']=='disponibilidad'){
    // Reservas::disponibilidad();
     print Reservas::disponibilidad();
 }
 
-if($_POST['funcion']=='reservar'){
+if($_REQUEST['funcion']=='reservar'){
   //  Reservas::reservar();
     print Reservas::reservar();
 }
