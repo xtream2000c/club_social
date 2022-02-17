@@ -25,48 +25,39 @@
         <div class="container-fluid">
           <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Logo</a>
           <ul class="dropdown-menu">
-
             <li><a class="dropdown-item" href="index.html">inicio</a></li>
             <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
             <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
             <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
             <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
             <li><a class="dropdown-item" href="contacto.html">Contactos</a></li>
-
           </ul>
-
           <a class="btn btn-secondary" type="button" href="inicioSesion.html" id="btnsesion">Iniciar Sesion</a>
+        </div> 
+    </nav>
 
-        </div>
-        
-      </nav>
-
-    <div class="container-fluid h-75">
-        <div class="row h-100">
-            <div class="col-md-6 align-items-center">
-                <div class="row h-100 justify-content-center align-items-center">
-                    <div class="col-xl-4 bg-info py-3" style="border-radius: 0.5rem;">
+    <div class="container-fluid mt-2">
+        <div class="row justify-content-around">
+            <div class="col-md-5 align-items-center">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-xl-5 bg-info py-3" style="border-radius: 0.5rem;">
+                      <h6 class="text-center">INICIO DE SESIÓN</h6><br>
                         <form id="inicioSesion" method="post">
-                            
                                     <label for="usuario" class="form-label">Usuario</label>
                                     <input type="text" id="usuario" class="form-control">
-                                
                                     <label for="contraseña" class="form-label">Contraseña</label>
                                     <input type="text" id="contraseña" class="form-control">
-                                
                                     <input type="submit" class="btn btn-primary mt-3">
-                            
                             </table>
                         </form>
                     </div>
-                </div>
-                
+                </div>   
             </div>
 
-            <div class="col-md-6">
-                <div class="row h-100 justify-content-center align-items-center">
-                    <div class="col-xl-4 bg-info py-4" style="border-radius: 0.5rem;">
-                        
+            <div class="col-md-5">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-xl-5 bg-info py-4" style="border-radius: 0.5rem;">
+                      <h6 class="text-center">REGISTRO DE NUEVO USUARIO</h6><br>
                         <form id="registro" method="post">
                             <label for="nombreR" class="form-label">Nombre</label>
                             <input type="text" id="nombreR" class="form-control">
@@ -89,9 +80,7 @@
                                     <label for="contrasenaR" class="form-label">Contraseña</label>
                                     <input type="password" id="contrasenaR" class="form-control">
                                 
-                                    <input type="submit" class="btn btn-primary mt-3" >
-                                
-                            </table>
+                                    <input type="submit" class="btn btn-primary mt-3" > <label class="pt-2">
                         </form>
                     
                     </div>
