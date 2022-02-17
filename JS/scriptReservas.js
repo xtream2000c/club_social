@@ -51,6 +51,7 @@ function main(){
                 success : function(respuesta){
                     if(respuesta.status=='OK'){
                         alert('su reserva ha sido realizada correctamente');//cambiar por un modal
+                        location.href = "index.html";
                     }else{
                         alert('ha ocurrido un error, intente de nuevo')
                     }
