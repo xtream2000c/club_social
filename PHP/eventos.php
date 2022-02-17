@@ -53,6 +53,56 @@ class Eventos{
         }
         
     }
+
+    static function eliminarEventos(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $id_eliminar = $_POST['id_eliminar'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = "DELETE FROM eventos WHERE eventos.id_eventos = $id_eliminar";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
+
+    static function editarEvento(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $id_editar = $_POST['id_editar'];
+        $titulo_evento = $_POST['titulo_evento'];
+        $cuerpo_evento = $_POST['cuerpo_evento'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = "UPDATE eventos SET titulo_evento = '$titulo_evento' , cuerpo_evento =  '$cuerpo_evento' WHERE eventos.id_eventos = $id_editar";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
     
 }
 
@@ -64,6 +114,17 @@ if($_POST['funcion']=='setEventos'){
 if($_POST['funcion']=='getEventos'){
 
     print(Eventos::getEventos());//imprime todas los eventos en JSON, llama a getEventos()
+
+}
+if($_POST['funcion']=='EliminarEvento'){
+
+    Eventos::eliminarEventos();//Llama a eliminar una noticia
+
+}
+
+if($_POST['funcion']=='editarEvento'){
+
+    Eventos::editarEvento();//Llama a eliminar una noticia
 
 }
 

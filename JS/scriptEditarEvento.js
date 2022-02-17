@@ -4,24 +4,33 @@ function main(){
 
     compruebaSesion();
 
-document.getElementById('creaEvento').addEventListener("submit",creaEvento,false);
+    var evento = JSON.parse(sessionStorage.getItem("eventoEditar"));
+
+    document.getElementById("titulo_eventoEditar").value= evento["titulo_evento"];
+    document.getElementById("cuerpo_eventoEditar").value= evento["cuerpo_evento"];
+
+    document.getElementById("editarEvento").addEventListener("submit", editarevento, false)
 
 }
 
-function creaEvento(event){
+function editarevento(event) {
+   
     event.preventDefault();
-    let titulo_evento = document.getElementById('titulo_evento').value;
-    let cuerpo_evento = document.getElementById('cuerpo_evento').value;
-            
+
+    var evento = JSON.parse(sessionStorage.getItem("eventoEditar"));
+
+    let titulo_evento = document.getElementById("titulo_eventoEditar").value;
+    let cuerpo_evento = document.getElementById("cuerpo_eventoEditar").value;
+    let id_editar = evento['id_evento'];
     $.ajax({
         type:"POST",
         url: "PHP/eventos.php",//se modifica la ruta
         data: {
-            'funcion':'setEventos','titulo_evento' : titulo_evento, 'cuerpo_evento':cuerpo_evento
+            'funcion':'editarEvento','id_editar' : id_editar ,'titulo_evento' : titulo_evento, 'cuerpo_evento':cuerpo_evento
         },
         success : function(evento){
-            alert("Evento insertado con exito");
-            
+            alert("evento editada con exito");
+
             $.ajax({
                 type:"POST",
                 url: "PHP/eventos.php",
@@ -45,7 +54,7 @@ function creaEvento(event){
                 }
             })
 
-            location.href="eventosPresidente.html";
+            location.href = "eventosPresidente.html"
             
         },
         error : function(xhr,ajaxOptions, thrownError){
@@ -53,4 +62,5 @@ function creaEvento(event){
             alert(thrownError);
         }
     })
+
 }

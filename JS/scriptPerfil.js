@@ -13,7 +13,7 @@ function inicio(){
         var usuario = usuarioSesion[0];
         if(usuario['tipo_usuario'] == "Presidente"){
 
-            var extras = '<div class="col-md-6 my-2"><a class="btn btn-primary" id="noticias" href="noticiasPresidente.html" >Administrar Noticias</a></div> <div class="col-md-6 my-2"><a class="btn btn-primary" id="eventos" >Administrar Eventos</a></div><hr>'
+            var extras = '<div class="col-md-6 my-2"><a class="btn btn-primary" id="noticias" href="noticiasPresidente.html" >Administrar Noticias</a></div> <div class="col-md-6 my-2"><a class="btn btn-primary" id="eventos" href="eventosPresidente.html">Administrar Eventos</a></div><hr>'
 
             document.getElementById('extras').innerHTML= extras;
 
