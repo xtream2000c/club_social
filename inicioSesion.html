@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +8,34 @@
     <title>Inicio Sesion</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="Boostrap/css/bootstrap.min.css">
-    
+
     <script src="Boostrap/js/bootstrap.min.js"></script>
     <script src="JS/jquery-3.6.0.min.js"></script>
     <script src="JS/scriptSesionIniciada.js"></script>
     <script src="JS/scriptSession.js"></script>
     <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
-    
+
     <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
 </head>
+
 <body class="h-100 bg-secondary">
 
     <div class="p-3 bg-secondary text-white text-center">
-      <img class="" src="./img/ClubSocialLogo2.png" height="100px" alt="logoClubSocial">
+        <img class="" src="./img/ClubSocialLogo2.png" height="100px" alt="logoClubSocial">
     </div>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-          <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Logo</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="index.html">inicio</a></li>
-            <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
-            <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
-            <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
-            <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
-            <li><a class="dropdown-item" href="contacto.html">Contactos</a></li>
-          </ul>
-          <a class="btn btn-secondary" type="button" href="inicioSesion.html" id="btnsesion">Iniciar Sesion</a>
-        </div> 
+            <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Menú</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html">inicio</a></li>
+                <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
+                <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
+                <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
+                <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
+                <li><a class="dropdown-item" href="contacto.html">Contactos</a></li>
+            </ul>
+            <a class="btn btn-secondary" type="button" href="inicioSesion.html" id="btnsesion">Iniciar Sesion</a>
+        </div>
     </nav>
 
     <div class="container-fluid mt-2">
@@ -41,46 +43,46 @@
             <div class="col-md-5 align-items-center">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-xl-5 bg-info py-3" style="border-radius: 0.5rem;">
-                      <h6 class="text-center">INICIO DE SESIÓN</h6><br>
+                        <h6 class="text-center">INICIO DE SESIÓN</h6><br>
                         <form id="inicioSesion" method="post">
-                                    <label for="usuario" class="form-label">Usuario</label>
-                                    <input type="text" id="usuario" class="form-control">
-                                    <label for="contraseña" class="form-label">Contraseña</label>
-                                    <input type="text" id="contraseña" class="form-control">
-                                    <input type="submit" class="btn btn-primary mt-3">
+                            <label for="usuario" class="form-label">Usuario</label>
+                            <input type="text" id="usuario" class="form-control">
+                            <label for="contraseña" class="form-label">Contraseña</label>
+                            <input type="text" id="contraseña" class="form-control">
+                            <input type="submit" class="btn btn-primary mt-3">
                             </table>
                         </form>
                     </div>
-                </div>   
+                </div>
             </div>
 
             <div class="col-md-5">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-xl-5 bg-info py-4" style="border-radius: 0.5rem;">
-                      <h6 class="text-center">REGISTRO DE NUEVO USUARIO</h6><br>
+                        <h6 class="text-center">REGISTRO DE NUEVO USUARIO</h6><br>
                         <form id="registro" method="post">
                             <label for="nombreR" class="form-label">Nombre</label>
                             <input type="text" id="nombreR" class="form-control">
-                                
-                                    <label for="apellidosR" class="form-label">Apellidos</label>
-                                    <input type="text" id="apellidosR" class="form-control">
-                                
-                                    <label for="edadR" class="form-label">Edad</label></td>
-                                    <input type="number" id="edadR" class="form-control">
-                                
-                                    <label for="miembrosR" class="form-label">Miembros</label>
-                                    <input type="text" id="miembrosR" class="form-control">
-                                
-                                    <label for="emailR" class="form-label">Email</label>
-                                    <input type="text" id="emailR" class="form-control">
 
-                                    <label for="usuarioR" class="form-label">Usuario</label>
-                                    <input type="text" id="usuarioR" class="form-control">
-                                
-                                    <label for="contrasenaR" class="form-label">Contraseña</label>
-                                    <input type="password" id="contrasenaR" class="form-control">
-                                
-                                    <input type="submit" class="btn btn-primary mt-3" > <label class="pt-2">
+                            <label for="apellidosR" class="form-label">Apellidos</label>
+                            <input type="text" id="apellidosR" class="form-control">
+
+                            <label for="edadR" class="form-label">Edad</label></td>
+                            <input type="number" id="edadR" class="form-control">
+
+                            <label for="miembrosR" class="form-label">Miembros</label>
+                            <input type="text" id="miembrosR" class="form-control">
+
+                            <label for="emailR" class="form-label">Email</label>
+                            <input type="text" id="emailR" class="form-control">
+
+                            <label for="usuarioR" class="form-label">Usuario</label>
+                            <input type="text" id="usuarioR" class="form-control">
+
+                            <label for="contrasenaR" class="form-label">Contraseña</label>
+                            <input type="password" id="contrasenaR" class="form-control">
+
+                            <input type="submit" class="btn btn-primary mt-3"> <label class="pt-2">
                         </form>
                     
                     </div>

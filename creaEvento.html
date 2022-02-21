@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,39 +8,40 @@
     <title>Crear evento</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="Boostrap/css/bootstrap.min.css">
-    
+
     <script src="Boostrap/js/bootstrap.min.js"></script>
     <script src="JS/jquery-3.6.0.min.js"></script>
     <script src="JS/scriptSesionIniciada.js"></script>
     <script src="JS/scriptCreaEvento.js"></script>
     <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
-    
+
     <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
 </head>
+
 <body class="h-100 bg-secondary">
 
-  <div class="p-3 bg-secondary text-white text-center">
-    <img class="" src="./img/ClubSocialLogo2.png" height="100px" alt="logoClubSocial">
-</div>
+    <div class="p-3 bg-secondary text-white text-center">
+        <img class="" src="./img/ClubSocialLogo2.png" height="100px" alt="logoClubSocial">
+    </div>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-          <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Logo</a>
-          <ul class="dropdown-menu">
+            <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Menú</a>
+            <ul class="dropdown-menu">
 
-            <li><a class="dropdown-item" href="index.html">inicio</a></li>
-            <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
-            <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
-            <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
-            <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
-            <li><a class="dropdown-item" href="contacto.html">Contactos</a></li>
+                <li><a class="dropdown-item" href="index.html">inicio</a></li>
+                <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
+                <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
+                <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
+                <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
+                <li><a class="dropdown-item" href="contacto.html">Contactos</a></li>
 
-          </ul>
+            </ul>
 
-          <a class="btn btn-secondary" type="button" href="inicioSesion.html" id="btnsesion">Iniciar Sesion</a>
+            <a class="btn btn-secondary" type="button" href="inicioSesion.html" id="btnsesion">Iniciar Sesion</a>
 
         </div>
-        
-      </nav>
+
+    </nav>
 
     <div class="container-fluid h-75">
         <div class="row h-100">
@@ -48,45 +50,47 @@
                     <div class="col-xl-8 bg-info py-3" style="border-radius: 0.5rem;">
                         <form id="creaEvento" method="post">
                             <h1>Crear evento</h1>
-                                    <label for="titulo_evento" class="form-label">Título evento</label>
-                                    <input type="text" id="titulo_evento" class="form-control">
-                                
-                                    <label for="cuerpo_evento" class="form-label">Descripción</label>
-                                    <input type="text" id="cuerpo_evento" class="form-control">
-                                
-                                    <input type="submit" class="btn btn-primary mt-3">
-                            
+                            <label for="titulo_evento" class="form-label">Título evento</label>
+                            <input type="text" id="titulo_evento" class="form-control">
+
+                            <label for="cuerpo_evento" class="form-label">Descripción</label>
+                            <input type="text" id="cuerpo_evento" class="form-control">
+
+                            <input type="submit" class="btn btn-primary mt-3">
+
                             </table>
                         </form>
                     </div>
                 </div>
-                
+
             </div>
 
-            
+
         </div>
 
-        
+
     </div>
 
     <footer class="footer mt-auto pt-3">
         <div class="container-fluid bg-dark text-white">
-          <div class="row pt-2">
-              <div class="col-4">
-                <h4>Contacto</h4>
-                <a href="contacto.html" class="btn btn-primary">Contacto</a>
-              </div>
-              <div class="col-4">
-                <h4>Aviso legal</h4>
-                <p>Todos los derechos reservados</p>
-              </div>
-              <div class="col-4">
-                <h4>Copyright</h4><h6>2022</h6>
-                <p>Tomás Moreno, Ronald García, Carlos Maroto</p>
-              </div>
-          </div>
+            <div class="row pt-2">
+                <div class="col-4">
+                    <h4>Contacto</h4>
+                    <a href="contacto.html" class="btn btn-primary">Contacto</a>
+                </div>
+                <div class="col-4">
+                    <h4>Aviso legal</h4>
+                    <p>Todos los derechos reservados</p>
+                </div>
+                <div class="col-4">
+                    <h4>Copyright</h4>
+                    <h6>2022</h6>
+                    <p>Tomás Moreno, Ronald García, Carlos Maroto</p>
+                </div>
+            </div>
         </div>
-      </footer>
+    </footer>
 
 </body>
+
 </html>
