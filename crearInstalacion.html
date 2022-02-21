@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear noticia</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="Boostrap/css/bootstrap.min.css">
+    
+    <script src="Boostrap/js/bootstrap.min.js"></script>
+    <script src="JS/jquery-3.6.0.min.js"></script>
+    <script src="JS/scriptSesionIniciada.js"></script>
+    <script src="JS/scriptCreaInstalacion.js"></script>
+    <meta name="author" content="Carlos Maroto, Tomás Moreno, Ronald García">
+    
+    <!-- Autores: Carlos Maroto, Tomás Moreno, Ronald García -->
+</head>
+<body class="h-100 bg-secondary">
+
+    <div class="p-3 bg-secondary text-white text-center">
+        <img class="" src="./img/ClubSocialLogo2.png" height="100px" alt="logoClubSocial">
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Logo</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="index.html">inicio</a></li>
+            <li><a class="dropdown-item" href="noticias.html">Noticias</a></li>
+            <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
+            <li><a class="dropdown-item" href="index.html">Donde estamos</a></li>
+            <li><a class="dropdown-item" href="index.html">Instalaciones - Precios</a></li>
+            <li><a class="dropdown-item" href="contacto.html">Contactos</a></li>
+
+          </ul>
+
+          <a class="btn btn-secondary" type="button" href="inicioSesion.html" id="btnsesion">Iniciar Sesion</a>
+
+        </div>
+        
+      </nav>
+
+    <div class="container-fluid h-75">
+        <div class="row h-100">
+            <div class="col-md-12 align-items-center">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-xl-8 bg-info py-3" style="border-radius: 0.5rem;">
+                        <form id="crearInstalacion" method="post">
+                            <h1>Crear Instalacion</h1>
+                            
+                                    <label for="tipoInstalacion" class="form-label">Tipo instalacion</label>
+                                    <input type="text" id="tipoInstalacion" class="form-control">
+
+                                    <label for="nombreInstalacion" class="form-label">Nombre instalacion</label>
+                                    <input type="text" id="nombreInstalacion" class="form-control">
+                                
+                                    <label for="precioSocios" class="form-label">Precio socios</label>
+                                    <input type="text" id="precioSocios" class="form-control">
+                                
+                                    <label for="precioNoSocios" class="form-label">Precio no socios</label>
+                                    <input type="text" id="precioNoSocios" class="form-control">
+
+                                    <input type="submit" class="btn btn-primary mt-3">
+                            
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+
+            
+        </div>
+
+        
+    </div>
+
+    <footer class="footer mt-auto pt-3">
+        <div class="container-fluid bg-dark text-white">
+          <div class="row pt-2">
+              <div class="col-4">
+                <h4>Contacto</h4>
+                <a href="contacto.html" class="btn btn-primary">Contacto</a>
+              </div>
+              <div class="col-4">
+                <h4>Aviso legal</h4>
+                <p>Todos los derechos reservados</p>
+              </div>
+              <div class="col-4">
+                <h4>Copyright</h4><h6>2022</h6>
+                <p>Tomás Moreno, Ronald García, Carlos Maroto</p>
+              </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+</html>

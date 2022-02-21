@@ -61,8 +61,6 @@ function main(){
                      alert("No se ha podido conectar con la base de datos para reservar");
                 }
 
-                
-
             })
 
         });

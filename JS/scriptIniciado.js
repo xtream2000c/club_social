@@ -8,6 +8,7 @@ function main() {
     $.ajax({
         type:"POST",
         url: "PHP/instalaciones.php",//se modifica la ruta
+        data: {'funcion':'getInstalaciones'},
         dataType: "JSON",
         success : function(infoInstalaciones){
             //console.log(infoInstalaciones);

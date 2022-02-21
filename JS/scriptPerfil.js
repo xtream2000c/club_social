@@ -2,10 +2,7 @@ window.onload = inicio;
 
 function inicio(){
 
-
     compruebaSesion();
-    
-    
 
     var usuarioSesion = JSON.parse(sessionStorage.getItem("usuarioSesion"));
 
@@ -20,7 +17,7 @@ function inicio(){
         }
         if(usuario['tipo_usuario'] == "Administrador"){
 
-            var extras = '<div class="col-md-6 my-2"><a class="btn btn-primary" id="noticias" >Administrar Miembros</a></div> <div class="col-md-6 my-2"><a class="btn btn-primary" id="eventos" >Administrar Instalaciones</a></div><hr>'
+            var extras = '<div class="col-md-6 my-2"><a class="btn btn-primary" id="usuarios" href="usuarios.html">Administrar Miembros</a></div> <div class="col-md-6 my-2"><a class="btn btn-primary" id="eventos" href="instalaciones.html">Administrar Instalaciones</a></div><hr>'
 
             document.getElementById('extras').innerHTML= extras;
 

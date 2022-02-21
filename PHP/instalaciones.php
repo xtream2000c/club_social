@@ -32,6 +32,110 @@ class Instalaciones{
         return json_encode($instalaciones);
     }
 
+    static function setInstalaciones(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $tipoPista = $_POST['tipoPista'];
+        $nombrePista = $_POST['nombrePista'];
+        $precioSocios = $_POST['precioSocios'];
+        $precioNoSocios = $_POST['precioNoSocios'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = " INSERT INTO instalaciones (id_pista,nombre_pista,precio,precio_no_socio,tipo_pista) VALUES ('','$nombrePista','$precioSocios','$precioNoSocios','$tipoPista')";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+
+            $errores[]=$e->getMessage();//añado el mensaje del error
+
+        }
+
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
+
+    static function eliminarinstalaciones(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $id_eliminar = $_POST['id_eliminar'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = "DELETE FROM instalaciones WHERE instalaciones.id_pista = $id_eliminar";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
+
+    static function editarinstalacion(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $id_editar = $_POST['id_editar'];
+        $tipoPista = $_POST['tipoPista'];
+        $nombrePista = $_POST['nombrePista'];
+        $tipoPista = $_POST['precioSocios'];
+        $precioNoSocios = $_POST['precioNoSocios'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = "UPDATE instalaciones SET nombre_pista = '$nombrePista' , tipo_pista =  '$tipoPista' , precio = '$tipoPista' , precio_no_socio =  '$precioNoSocios' WHERE instalaciones.id_pista = $id_editar";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
+
 }
-print(Instalaciones::getInstalaciones());//imprime todas las instalaciones en JSON, llama a getinstalaciones()
+
+if($_POST['funcion']=='setInstalaciones'){
+
+    Instalaciones::setInstalaciones(); // Llama a la funcion para crear Instalaciones
+
+}
+if($_POST['funcion']=='getInstalaciones'){
+
+    print(Instalaciones::getInstalaciones());//imprime todas los Instalaciones en JSON, llama a getInstalaciones()
+
+}
+if($_POST['funcion']=='Eliminarinstalacion'){
+
+    Instalaciones::eliminarinstalaciones();//Llama a eliminar una noticia
+
+}
+
+if($_POST['funcion']=='editarinstalacion'){
+
+    Instalaciones::editarinstalacion();//Llama a eliminar una noticia
+
+}
+
 ?>

@@ -94,7 +94,9 @@ class Reservas{
                 $mensaje['status']= "OK";
                 //aqui se envía el correo electrónico de confirmación
 
-                $precio_pista = "SELECT precio from instalaciones where id = '$id_pista'";
+                $precio_pista = "SELECT precio from instalaciones where id_pista = $id_pista";
+                $resultprecio = DB::query($precio_pista);
+                $precio = $resultprecio->fetch_array()["precio"];
 
                 $consultaEmail = "SELECT email from usuarios where id = '$id_usuario'";
                 $resultEmail = DB::query($consultaEmail);
@@ -105,8 +107,8 @@ class Reservas{
                     mail(
                         $resultEmail->fetch_array()["email"],
                         'Reserva realizada correctamente',
-                        'Su reserva para el día '.$fecha.' a las '.$hora.' horas ha sido realizada correctamente.'
-                        'FACTURA: '.$precio_pista.' euro/s.'
+                        'Su reserva para el día '.$fecha.' a las '.$hora.' horas ha sido realizada correctamente.
+                         FACTURA: '.$precio.' euro/s.'
                     );
                 }else{
                     'No se pudo enviar el correo por un error en sus datos';
