@@ -97,8 +97,63 @@ class Usuarios {
         
 
     }
+
+    static function eliminarUsuario(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $id_eliminar = $_POST['id_eliminar'];
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = "DELETE FROM usuarios WHERE usuarios.id = $id_eliminar";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
     
-    //falta proteger contra inyección sql, hay que hacerlo con un PDO::prepare y despues execute del statement
+    static function editarUsuario(){
+        // set parameters and execute
+        // print('ahora estoy aqui');
+        $id_editar = $_POST['id_editar'];
+        $nombre = $_POST['nombre'];
+        $apellidos = $_POST['apellidos'];
+        $tipo_usuario = $_POST['tipoUsuario'];
+        $email = $_POST['email'];
+        $edad = $_POST['edad'];
+        $miembros = $_POST['miembros'];
+        $usuario = $_POST['usuario'];
+        
+        
+        $errores=[];//se crea un array que contendrá los errores
+
+        try{
+            $sentencia = "UPDATE usuarios SET nombre = '$nombre' , apellidos =  '$apellidos', email = '$email' , edad =  '$edad' , miembros = '$miembros' , usuario =  '$usuario' , tipo_usuario =  '$tipo_usuario' WHERE usuarios.id = $id_editar";
+
+            DB::query($sentencia);
+
+        }catch(Exception $e){
+            $errores[]=$e->getMessage();//añado el mensaje del error
+        }
+        //se imprime un objeto json haya errores o no
+        if(sizeof( $errores) > 0){
+            print(json_encode(array('status'=>'error','mensaje'=>$errores)) );
+        }else{
+            print(json_encode(array('status'=>'ok')));
+        }
+        
+    }
+    
 }
 if($_POST['funcion']=='setUsuario'){
     Usuarios::setUsuario();
@@ -108,7 +163,21 @@ if($_POST['funcion']=='getUsuario'){
     //Usuarios::getUsuario();  
     print Usuarios::getUsuario(); 
 }
+if($_POST['funcion']=='getUsuarios'){
+    //Usuarios::getUsuario();  
+    print Usuarios::getUsuarios(); 
+}
+if($_POST['funcion']=='eliminarUsuario'){
 
+    Usuarios::eliminarUsuario();//Llama a eliminar un Usuario
+
+}
+
+if($_POST['funcion']=='editarUsuario'){
+
+    Usuarios::editarUsuario();//Llama a editar un Usuario
+
+}
 //posible solución a las reservas
 //tendremos la lista con las pistas que hay, luego un objeto que muestre la disponibilidad de la pista
 //se coge de la bbdd las horas que ya están reservadas y se quitan de las horas de disponibilidad (apertura-cierre)
