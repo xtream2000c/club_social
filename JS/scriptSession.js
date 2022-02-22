@@ -15,22 +15,29 @@
         let emailR = document.getElementById('emailR').value;
         let usuarioR = document.getElementById('usuarioR').value;
         let contrasenaR = document.getElementById('contrasenaR').value;
-                
-        $.ajax({
-            type:"POST",
-            url: "PHP/usuarios.php",//se modifica la ruta
-            data: {
-                'funcion':'setUsuario','nombre' : nombreR, 'apellidos':apellidosR,'edad':edadR, 'miembros': miembrosR, 'email':emailR, 'usuario': usuarioR,'contraseña':contrasenaR
-            },
-            success : function(usu){
-                console.log(usu);
-                
-            },
-            error : function(xhr,ajaxOptions, thrownError){
-                 alert(xhr.status);
-                 alert(thrownError);
-            }
-        })
+        
+        if(edadR>14){
+
+            $.ajax({
+                type:"POST",
+                url: "PHP/usuarios.php",//se modifica la ruta
+                data: {
+                    'funcion':'setUsuario','nombre' : nombreR, 'apellidos':apellidosR,'edad':edadR, 'miembros': miembrosR, 'email':emailR, 'usuario': usuarioR,'contraseña':contrasenaR
+                },
+                success : function(usu){
+                    console.log(usu);
+                    alert("Usuario registrado correctamente");
+                    location.href="index.html";
+                },
+                error : function(xhr,ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            })
+        }else{
+            alert("El usuario debe ser mayor de 14 años");
+        }
+
     }
     
     function inicioSesion(event){
